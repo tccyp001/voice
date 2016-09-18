@@ -3,8 +3,10 @@
 
 $(document).ready(function(){
     var model = {
-        "question1": ['A 我要点菜', 'B 菜要点我', 'C 我要菜', 'D 我要饭'],
-        "question2": ['A 我要喝茶', 'B 我要喝菜', 'C 我要菜', 'D 我喝要茶'],       
+        "question1": ['我要点菜', '菜要点我', '我要菜', '我要饭'],
+        "answer1": 0,
+        "question2": ['我要喝茶', '我要喝菜', '我要菜', '我喝要茶'],
+        "answer2": 0
     }
 
 
@@ -24,16 +26,16 @@ $(document).ready(function(){
       recognition.onstart = function() {
         recognizing = true;
         showInfo('info_speak_now');
-        start_img.src = '../images/mic-animate.gif';
+        $('#start_button').addClass('icon_color');
       };
       recognition.onerror = function(event) {
         if (event.error == 'no-speech') {
-          start_img.src = '../images/mic.gif';
+          $('#start_button').removeClass('icon_color');
           showInfo('info_no_speech');
           ignore_onend = true;
         }
         if (event.error == 'audio-capture') {
-          start_img.src = '../images/mic.gif';
+          $('#start_button').removeClass('icon_color');
           showInfo('info_no_microphone');
           ignore_onend = true;
         }
@@ -51,7 +53,7 @@ $(document).ready(function(){
         if (ignore_onend) {
           return;
         }
-        start_img.src = '../images/mic.gif';
+        $('#start_button').removeClass('icon_color');
         if (!final_transcript) {
           showInfo('info_start');
           return;
@@ -86,6 +88,7 @@ $(document).ready(function(){
     }
 
     bindClickEvents();
+    handleEvents();
 
     function upgrade() {
       start_button.style.visibility = 'hidden';
@@ -112,7 +115,7 @@ $(document).ready(function(){
       ignore_onend = false;
       final_span.innerHTML = '';
       interim_span.innerHTML = '';
-      start_img.src = '../images/mic-slash.gif';
+      $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
       showInfo('info_allow');
       showButtons('none');
       start_timestamp = event.timeStamp;
@@ -139,35 +142,20 @@ $(document).ready(function(){
     }
 
     function checkResult(data){
-      console.log("check result data:" + data);
-      if(data=='谢谢你'){
-        sendCorrect();
+        console.log('data', model['question1']);
+        console.log(model['answer1']);
+        console.log(model['question1'].indexOf(data));
+      if(model['question1'].indexOf(data) == model['answer1']){
+        sendMessage('correct1');
       }
       else {
-        sendWrong();
+        sendMessage('wrong1');
       }
-    }
-
-    function sendPlay(){
-      var socket = io();
-      socket.emit('chat message', "play");
-    }
-    function sendReplay(){
-      var socket = io();
-      socket.emit('chat message', "replay");
-    }
-    function sendCorrect(){
-      var socket = io();
-      socket.emit('chat message', "play");
-    }
-    function sendWrong(){
-      var socket = io();
-      socket.emit('chat message', "wrong");
     }
 
     function sendMessage(msg){
       var socket = io();
-      socket.emit('chat message', msg);        
+      socket.emit('chat message', 'play:' + msg);        
     }
 
     function bindClickEvents(){
@@ -176,9 +164,40 @@ $(document).ready(function(){
         })
 
         $('.btn-groups').on('click', 'button', function(){
-            var msg = $(this).attr('value')
+            var msg = $(this).attr('value');
             sendMessage(msg);
         })
+    }
+
+    function handleEvents(){
+        var socket = io();
+        socket.on('chat message', function(msg){
+            console.log(msg);   
+            if(msg=='done:question1') {
+                generateButtons('question1');
+            }
+            if(msg=='done:question2') {
+                generateButtons('question2');
+            }
+            if(msg=='play_done') {
+                generateButton('continue');
+            }
+        });
+    }
+
+    function generateButtons(question){
+        $('#selections').empty();
+        var array = model[question];
+        var arrayDOM = array.map(function(item){
+            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button><div>');
+        })
+        $('#continue').append(arrayDOM);
+    }
+
+    function generateButton(name){
+        $('#selections').empty();
+        var arrayDOM = $('<div><button type="button" class="btn btn-success btn-lg">'+ name + '</button><div>');
+        $('#selections').append(arrayDOM);
     }
 
 })
