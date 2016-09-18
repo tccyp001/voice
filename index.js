@@ -5,10 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var http = require('http');
+var app = express();
+var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-var app = express();
 
 app.use(cors());
 app.use(logger('dev'));
@@ -26,11 +26,8 @@ io.on('connection', function(socket){
   });
 });
 
-var port = process.env.PORT || 3000;
-
-var server = app.listen(port, function () {
-  var host = server.address().address;
-  console.log('Example server listening at http://%s:%s', host, port);
-})
+http.listen(3000, "0.0.0.0", function(){
+  console.log('listening on *:3000');
+});
 
 module.exports = app;

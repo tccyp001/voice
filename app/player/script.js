@@ -1,25 +1,16 @@
 'use strict';
 
 $(document).ready(function(){
-    var socket = io();
-    socket.on('chat message', function(msg){
-        console.log(msg);   
-        if(msg=='play') {
-            $('#myplayer').get(0).play();
-            $('#messages').append($('<li>').text(msg));
-        }
-
-    });
      var stopAt = -1;
       var clips = {
-        "question1": { src:"public/normal.mp4", "start":0, "end":4},
-        "question2": { src:"public/normal.mp4", "start":4, "end":8},
-        "question3": { src:"public/normal.mp4", "start":9, "end":59},
-        "correct1": { src:"public/expression.mp4", "start":14, "end":16},   
-        "wrong1": { src:"public/expression.mp4", "start":18.7, "end":20.2},
-        "normalall": { src:"public/normal.mp4", "start":0, "end":59},
-        "slowall": { src:"public/lower_speed.mp4", "start":0, "end":59},
-        "superslowall": { src:"public/super_low_speed.mp4", "start":0, "end":59},
+        "question1": { src:"../video/normal.mp4", "start":0, "end":4},
+        "question2": { src:"../video/normal.mp4", "start":4, "end":8},
+        "question3": { src:"../video/normal.mp4", "start":9, "end":59},
+        "correct1": { src:"../video/expression.mp4", "start":14, "end":16},   
+        "wrong1": { src:"../video/expression.mp4", "start":18.7, "end":20.2},
+        "normalall": { src:"../video/normal.mp4", "start":0, "end":59},
+        "slowall": { src:"../video/lower_speed.mp4", "start":0, "end":59},
+        "superslowall": { src:"../video/super_low_speed.mp4", "start":0, "end":59},
       }
       var correctList = [{"start":10, "end":20}];
       var wrongList = [{"start":10, "end":20}];
@@ -70,7 +61,7 @@ $(document).ready(function(){
       }
       function next(){
         player.pause();
-        player.src="public/question2.webm";
+        player.src="../video/question2.webm";
         player.load();
         stopAt = -1;
         /*
