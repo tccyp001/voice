@@ -1,16 +1,48 @@
-'use strict';
-
-$(document).ready(function(){
-    var socket = io();
-    socket.on('chat message', function(msg){
-        console.log(msg);   
-        if(msg=='play') {
-            $('#myplayer').get(0).play();
-            $('#messages').append($('<li>').text(msg));
-        }
-
-    });
-     var stopAt = -1;
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      video::-webkit-media-controls {
+        # display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <ul id="messages">
+      
+      <li>Command list
+      </li>
+    </ul>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <video width="400" controls id='myplayer'>
+    <source src="public/normal.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+  <button onclick="fullScreen()">fullScreen</button>
+  <button onclick="play()">play</button>
+  <button onclick="pause()">pause</button>
+  <button onclick="replay()">replay</button>
+  <button onclick="next()">next video</button>
+  <button onclick="correct()">correct</button>
+  <button onclick="wrong()">wrong</button>
+  <button onclick="setSlow()">low speed</button>
+  <button onclick="setNormal()">normal</button>
+  <button onclick="setSuperSlow()">super slow</button>
+    <script>
+      var stopAt = -1;
       var clips = {
         "question1": { src:"public/normal.mp4", "start":0, "end":4},
         "question2": { src:"public/normal.mp4", "start":4, "end":8},
@@ -116,4 +148,6 @@ $(document).ready(function(){
         player.src="public/normal.mp4"
         player.load();
       }
-})
+    </script>
+  </body>
+</html>
