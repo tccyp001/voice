@@ -51,21 +51,16 @@
         <div><button type="button" class="btn btn-default btn-lg">你好</button></div>
         <div><button type="button" class="btn btn-default btn-lg">还有谁</button></div>
       </div>
+      <div id="continue">
+      </div>
     </div>
 
     <div class="btn-groups">
-      <button type="button" class="btn btn-primary">播放</button>
-      <button type="button" class="btn btn-primary">重放</button>
-      <button type="button" class="btn btn-primary">下一段</button>
-      <button type="button" class="btn btn-primary">上一段</button>
+      <button type="button" class="btn btn-primary btn-lg" value="normalall">正常速度</button>
+      <button type="button" class="btn btn-primary btn-lg" value="slowall">慢速</button>
+      <button type="button" class="btn btn-primary btn-lg" value="superslowall">超慢速</button>
     </div>
 
-<!--       <button class="button" id="play_button" onclick="sendPlay()">Play video
-      </button>
-
-
-      <button class="button" id="replay_button" onclick="sendReplay()">Replay video
-      </button> -->
   </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="../jquery/dist/jquery.js"></script>  

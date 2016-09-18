@@ -2,6 +2,12 @@
 
 
 $(document).ready(function(){
+    var model = {
+        "question1": ['A 我要点菜', 'B 菜要点我', 'C 我要菜', 'D 我要饭'],
+        "question2": ['A 我要喝茶', 'B 我要喝菜', 'C 我要菜', 'D 我喝要茶'],       
+    }
+
+
     showInfo('info_start');
 
     var final_transcript = '';
@@ -159,9 +165,19 @@ $(document).ready(function(){
       socket.emit('chat message', "wrong");
     }
 
+    function sendMessage(msg){
+      var socket = io();
+      socket.emit('chat message', msg);        
+    }
+
     function bindClickEvents(){
         $('#start_button').on('click', function(e){
             startButton(e);
+        })
+
+        $('.btn-groups').on('click', 'button', function(){
+            var msg = $(this).attr('value')
+            sendMessage(msg);
         })
     }
 
