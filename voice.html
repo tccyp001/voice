@@ -116,6 +116,9 @@
 
 <button class="button" id="play_button" onclick="sendPlay()">Play video
 </button>
+
+<button class="button" id="replay_button" onclick="sendReplay()">Replay video
+</button>
 </div>
 <script>
 
@@ -260,9 +263,13 @@ function sendPlay(){
   var socket = io();
   socket.emit('chat message', "play");
 }
+function sendReplay(){
+  var socket = io();
+  socket.emit('chat message', "replay");
+}
 function sendCorrect(){
   var socket = io();
-  socket.emit('chat message', "correct");
+  socket.emit('chat message', "play");
 }
 function sendWrong(){
   var socket = io();

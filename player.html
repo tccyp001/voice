@@ -14,14 +14,34 @@
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
+    <div>
+    <ul id="messages">
+      
+      <li>Command list
+      </li>
+    </ul>
+    </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <video width="400" controls id='myplayer'>
+    <source src="public/black_bg_w_props.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+  <button onclick="play()">play</button>
+  
     <script>
       var socket = io();
       socket.on('chat message', function(msg){
+        if(msg=='play') {
+                  $('#myplayer').get(0).play();
         $('#messages').append($('<li>').text(msg));
+        }
+
       });
+      function play(){
+         $('#myplayer').get(0).play();
+      }
     </script>
   </body>
 </html>
