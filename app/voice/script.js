@@ -190,7 +190,7 @@ $(document).ready(function(){
                 generateButton('继续', 'question' + model.status);
             }
             if(msg == ('done:wrong' + model.status)) {
-                generateButton('继续', 'question' + model.status);
+                generateButton('再来一次', 'question' + model.status);
             }
             if(msg == ('play:wrong' + model.status)) {
             }
