@@ -189,6 +189,9 @@ $(document).ready(function(){
                 model.status = model.status + 1;
                 generateButton('继续', 'question' + model.status);
             }
+            if(msg == ('done:wrong' + model.status)) {
+                generateButton('继续', 'question' + model.status);
+            }
             if(msg == ('play:wrong' + model.status)) {
             }
         });
