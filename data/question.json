@@ -17,7 +17,7 @@
       	"src": "../mp3/question1_4.mp3"
       }
    ],
-   "answer_question1":0,
+   "answer_question1":"我要点菜",
    "question2":[  
       {
       	"text": "选项一",
@@ -36,5 +36,5 @@
       	"src": "question2_4.mp3"
       }
    ],
-   "answer_question2":0
+   "answer_question2":"我要喝茶"
 }

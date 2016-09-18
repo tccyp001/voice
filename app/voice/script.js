@@ -3,16 +3,10 @@
 
 $(document).ready(function(){
     var model;
-<<<<<<< HEAD
     var ipad_voice = false;
-=======
-
     var audioElement = document.createElement('audio');
+    audioElement.setAttribute('autoplay', 'autoplay');
 
-        audioElement.setAttribute('autoplay', 'autoplay');
-
-
->>>>>>> 7a562229425f8f5510bda5dad77b6b9c25ee79fe
     $.get('/api/question').then(function(data){
       model = data;
     });
@@ -23,9 +17,10 @@ $(document).ready(function(){
     var recognizing = false;
     var ignore_onend;
     var start_timestamp;
+
     function voiceEnd(data){
       $('#start_button').removeClass('icon_color');
-      checkResult(final_transcript);
+      checkResult(data);
     }
     function voiceError(data){
       $('#start_button').removeClass('icon_color');
@@ -37,7 +32,7 @@ $(document).ready(function(){
     } else {
       start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
-      recognition.continuous = true;
+      recognition.continuous = false;
       recognition.interimResults = true;
       recognition.onstart = function() {
         recognizing = true;
@@ -100,7 +95,7 @@ $(document).ready(function(){
         if (final_transcript || interim_transcript) {
           showButtons('inline-block');
         }
-        recognition.stop();
+        //recognition.stop();
         
       };
     }
@@ -167,8 +162,8 @@ $(document).ready(function(){
     }
 
     function checkResult(data){
-        var index = model['question' + model.status].indexOf(data);
-        if(index == (model['answer_question' + model.status] - 0)){
+        //var index = model['question' + model.status].indexOf(data);
+        if(data == model['answer_question' + model.status]){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
             hightLightButton(index);

@@ -14,7 +14,7 @@ $(document).ready(function(){
     } else {
     //  start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
-      recognition.continuous = true;
+      recognition.continuous = false;
       recognition.interimResults = true;
       recognition.onstart = function() {
         recognizing = true;
@@ -58,8 +58,6 @@ $(document).ready(function(){
             interim_transcript += event.results[i][0].transcript;
           }
         }
-        recognition.stop();
-;
         
       };
     }
@@ -140,7 +138,7 @@ $(document).ready(function(){
         if(msg=='replay') {
           replay();
         }
-        if(msg=='start:voice') {
+        if(msg=='voice:start') {
           startRecognition();
         }
       });
