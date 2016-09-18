@@ -59,8 +59,9 @@ $(document).ready(function(){
           showInfo('info_start');
           return;
         }
-        checkResult(final_transcript);
         showInfo('');
+        checkResult(final_transcript);
+        
         // if (window.getSelection) {
         //   window.getSelection().removeAllRanges();
         //   var range = document.createRange();
@@ -84,6 +85,7 @@ $(document).ready(function(){
         if (final_transcript || interim_transcript) {
           showButtons('inline-block');
         }
+        recognition.stop();
         
       };
     }
