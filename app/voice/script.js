@@ -6,7 +6,8 @@ $(document).ready(function(){
         "question1": ['我要点菜', '菜要点我', '我要菜', '我要饭'],
         "answer1": 0,
         "question2": ['我要喝茶', '我要喝菜', '我要菜', '我喝要茶'],
-        "answer2": 0
+        "answer2": 0,
+        'status': null
     }
 
 
@@ -60,12 +61,12 @@ $(document).ready(function(){
         }
         checkResult(final_transcript);
         showInfo('');
-        if (window.getSelection) {
-          window.getSelection().removeAllRanges();
-          var range = document.createRange();
-          range.selectNode(document.getElementById('final_span'));
-          window.getSelection().addRange(range);
-        }
+        // if (window.getSelection) {
+        //   window.getSelection().removeAllRanges();
+        //   var range = document.createRange();
+        //   range.selectNode(document.getElementById('final_span'));
+        //   window.getSelection().addRange(range);
+        // }
 
       };
       recognition.onresult = function(event) {
@@ -78,8 +79,8 @@ $(document).ready(function(){
           }
         }
         final_transcript = capitalize(final_transcript);
-        final_span.innerHTML = linebreak(final_transcript);
-        interim_span.innerHTML = linebreak(interim_transcript);
+        // final_span.innerHTML = linebreak(final_transcript);
+        // interim_span.innerHTML = linebreak(interim_transcript);
         if (final_transcript || interim_transcript) {
           showButtons('inline-block');
         }
@@ -113,8 +114,8 @@ $(document).ready(function(){
       recognition.lang = 'cmn-Hans-CN';
       recognition.start();
       ignore_onend = false;
-      final_span.innerHTML = '';
-      interim_span.innerHTML = '';
+      // final_span.innerHTML = '';
+      // interim_span.innerHTML = '';
       $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
       showInfo('info_allow');
       showButtons('none');
@@ -142,14 +143,13 @@ $(document).ready(function(){
     }
 
     function checkResult(data){
-        console.log('data', model['question1']);
-        console.log(model['answer1']);
-        console.log(model['question1'].indexOf(data));
-      if(model['question1'].indexOf(data) == model['answer1']){
-        sendMessage('correct1');
-      }
-      else {
-        sendMessage('wrong1');
+        var index = model['question' + model.status].indexOf(data);
+        if(index == model['answer' + model.status]){
+            sendMessage('correct' + model.status);
+            hightLightButton(index);
+        }
+        else {
+            sendMessage('wrong' + model.status);
       }
     }
 
@@ -165,7 +165,15 @@ $(document).ready(function(){
 
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
+            $('#selections').empty();
             sendMessage(msg);
+            model.status = 1;
+        })
+
+        $('#continue_button').on('click','button', function(){
+            var msg = $(this).attr('value');
+            sendMessage(msg);
+            $('#continue_button').empty();
         })
     }
 
@@ -173,14 +181,15 @@ $(document).ready(function(){
         var socket = io();
         socket.on('chat message', function(msg){
             console.log(msg);   
-            if(msg=='done:question1') {
-                generateButtons('question1');
+            if(msg == ('done:question' + model.status) || msg === ('done:wrong' + model.status)) {
+                generateButtons('question' + model.status);
             }
-            if(msg=='done:question2') {
-                generateButtons('question2');
+
+            if(msg == ('done:correct' + model.status)) {
+                model.status = model.status + 1;
+                generateButton('继续', 'question' + model.status);
             }
-            if(msg=='play_done') {
-                generateButton('continue');
+            if(msg == ('play:wrong' + model.status)) {
             }
         });
     }
@@ -189,15 +198,19 @@ $(document).ready(function(){
         $('#selections').empty();
         var array = model[question];
         var arrayDOM = array.map(function(item){
-            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button><div>');
+            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button></div>');
         })
-        $('#continue').append(arrayDOM);
+        $('#selections').append(arrayDOM);
     }
 
-    function generateButton(name){
+    function generateButton(name, value){
         $('#selections').empty();
-        var arrayDOM = $('<div><button type="button" class="btn btn-success btn-lg">'+ name + '</button><div>');
-        $('#selections').append(arrayDOM);
+        var arrayDOM = $('<div><button type="button" class="btn btn-success btn-lg" value="' + value + '">'+ name + '</button></div>');
+        $('#continue_button').append(arrayDOM);
+    }
+
+    function hightLightButton(index){
+        $('#selections').find('button').eq(index).css('background', 'orange');
     }
 
 })
