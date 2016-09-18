@@ -3,6 +3,7 @@
 
 $(document).ready(function(){
     var model;
+    var ipad_voice = false;
     $.get('/api/question').then(function(data){
       model = data;
     });
@@ -13,6 +14,15 @@ $(document).ready(function(){
     var recognizing = false;
     var ignore_onend;
     var start_timestamp;
+    function voiceEnd(data){
+      $('#start_button').removeClass('icon_color');
+      checkResult(final_transcript);
+    }
+    function voiceError(data){
+      $('#start_button').removeClass('icon_color');
+      showInfo(data);
+      ignore_onend = true;
+    }
     if (!('webkitSpeechRecognition' in window)) {
       upgrade();
     } else {
@@ -104,14 +114,21 @@ $(document).ready(function(){
     }
 
     function startButton(event) {
-      if (recognizing) {
-        recognition.stop();
-        return;
+
+      if(ipad_voice){
+        if (recognizing) {
+          recognition.stop();
+          return;
+        }
+        final_transcript = '';
+        recognition.lang = 'cmn-Hans-CN';
+        recognition.start();
+        ignore_onend = false;
       }
-      final_transcript = '';
-      recognition.lang = 'cmn-Hans-CN';
-      recognition.start();
-      ignore_onend = false;
+      else {
+        sendMessage('voice:start');
+      }
+
       // final_span.innerHTML = '';
       // interim_span.innerHTML = '';
       $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
@@ -188,6 +205,12 @@ $(document).ready(function(){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
                 generateButtons('question' + model.status);
+            }
+            if(msg.indexOf('result:')>=0) {
+              voiceEnd(msg.split(":")[1]);
+            }
+            if(msg.indexOf('voice_error:')>=0) {
+              voiceError(msg.split(":")[1]);
             }
             // if(msg == ('done:correct' + model.status)) {
             //     model.status = model.status + 1;

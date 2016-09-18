@@ -1,6 +1,75 @@
 'use strict';
 
 $(document).ready(function(){
+
+
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      var final_transcript = '';
+      var recognizing = false;
+      var ignore_onend;
+      if (!('webkitSpeechRecognition' in window)) {
+      upgrade();
+    } else {
+    //  start_button.style.display = 'inline-block';
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.onstart = function() {
+        recognizing = true;
+      };
+
+      recognition.onerror = function(event) {
+        if (event.error == 'no-speech') {
+          ignore_onend = true;
+          socket.emit('chat message', "voice_error:" + 'info_no_speech')
+        }
+        if (event.error == 'audio-capture') {
+          socket.emit('chat message', "voice_error:" + 'info_no_microphone')
+          ignore_onend = true;
+        }
+        if (event.error == 'not-allowed') {
+          if (event.timeStamp - start_timestamp < 100) {
+            socket.emit('chat message', "voice_error:" + 'info_blocked')
+          } else {
+            socket.emit('chat message', "voice_error:" + 'info_blocked')
+          }
+          ignore_onend = true;
+        }
+      };
+      recognition.onend = function() {
+        recognizing = false;
+        if (ignore_onend) {
+          return;
+        }
+        if (!final_transcript) {
+          return;
+        }
+        socket.emit('chat message', "result:" + final_transcript)
+
+      };
+      recognition.onresult = function(event) {
+        var interim_transcript = '';
+        for (var i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            final_transcript += event.results[i][0].transcript;
+          } else {
+            interim_transcript += event.results[i][0].transcript;
+          }
+        }
+        recognition.stop();
+;
+        
+      };
+    }
+    function startRecognition() {
+      final_transcript = '';
+      recognition.lang = 'cmn-Hans-CN';
+      recognition.start();
+      ignore_onend = false;
+    }
+
      var stopAt = -1;
       // var clips = {
       //   "question1": { src:"../video/normal.mp4", "start":0, "end":4},
@@ -70,6 +139,9 @@ $(document).ready(function(){
         }
         if(msg=='replay') {
           replay();
+        }
+        if(msg=='start:voice') {
+          startRecognition();
         }
       });
       function fullScreen(){
