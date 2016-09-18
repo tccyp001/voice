@@ -4,7 +4,7 @@ $(document).ready(function(){
      var stopAt = -1;
       var clips = {
         "question1": { src:"../video/normal.mp4", "start":0, "end":4},
-        "question2": { src:"../video/normal.mp4", "start":4, "end":8},
+        "question2": { src:"../video/normal.mp4", "start":4.7, "end":8.48},
         "question3": { src:"../video/normal.mp4", "start":9, "end":59},
         "correct1": { src:"../video/expression.mp4", "start":14, "end":16},   
         "wrong1": { src:"../video/expression.mp4", "start":18.7, "end":20.2},
@@ -16,12 +16,14 @@ $(document).ready(function(){
       var wrongList = [{"start":10, "end":20}];
       var player = $('#myplayer').get(0);
       var socket = io();      
+      var currentClip = '';
       function actionLog(msg){
         $('#messages').append($('<li>').text(msg));
         console.log(msg);
       }
       function playClip(clipName, callback) {
         var curClip = clips[clipName];
+        currentClip = clipName;
         player.pause();
         if(player.currentSrc != curClip.src) {
           player.src = curClip.src;
@@ -82,29 +84,18 @@ $(document).ready(function(){
         if(stopAt>0 && player.currentTime>=stopAt) {
           player.pause();
           stopAt = -1;
-          socket.emit('chat message', "play_done");
+          socket.emit('chat message', "done:" + currentClip);
           if(callback){
             callback();
           }
           
         }
       }
-      function setSlow(){
-        stopAt = -1;
-        player.pause();
-        player.src="public/lower_speed.mp4"
-        player.load();
+      function bindClickEvents(){
+        $('#fullscreen_btn').on('click', function(e){
+            fullScreen();
+        });
       }
-      function setSuperSlow(){
-        stopAt = -1;
-        player.pause();
-        player.src="public/super_low_speed.mp4"
-        player.load();
-      }
-      function setNormal(){
-        stopAt = -1;
-        player.pause();
-        player.src="public/normal.mp4"
-        player.load();
-      }
+    bindClickEvents();
+
 })
