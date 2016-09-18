@@ -1,1 +1,40 @@
-{"question1":["我要点菜","菜要点我","我要菜","我要饭"],"answer_question1":0,"question2":["我要喝茶","我要喝菜","我要菜","我喝要茶"],"answer_question2":0}
+{  
+   "question1":[  
+      {
+      	"text": "选项一",
+      	"src": "../mp3/question1_1.m4a"
+      },
+      {
+      	"text": "选项二",
+      	"src": "../mp3/question1_2.mp3"
+      },
+      {
+      	"text": "选项三",
+      	"src": "../mp3/question1_3.mp3"
+      },
+      {
+      	"text": "选项四",
+      	"src": "../mp3/question1_4.mp3"
+      }
+   ],
+   "answer_question1":0,
+   "question2":[  
+      {
+      	"text": "选项一",
+      	"src": "question2_1.mp3"
+      },
+      {
+      	"text": "选项二",
+      	"src": "question2_2.mp3"
+      },
+      {
+      	"text": "选项三",
+      	"src": "question2_3.mp3"
+      },
+      {
+      	"text": "选项四",
+      	"src": "question2_4.mp3"
+      }
+   ],
+   "answer_question2":0
+}

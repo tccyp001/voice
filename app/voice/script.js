@@ -3,7 +3,16 @@
 
 $(document).ready(function(){
     var model;
+<<<<<<< HEAD
     var ipad_voice = false;
+=======
+
+    var audioElement = document.createElement('audio');
+
+        audioElement.setAttribute('autoplay', 'autoplay');
+
+
+>>>>>>> 7a562229425f8f5510bda5dad77b6b9c25ee79fe
     $.get('/api/question').then(function(data){
       model = data;
     });
@@ -197,6 +206,13 @@ $(document).ready(function(){
             sendMessage(msg);
             $('#continue_button').empty();
         })
+
+        $('#selections').on('click', 'button', function(){
+            var src = $(this).attr('value');
+            audioElement.setAttribute('src', src);
+            audioElement.play();
+        })
+
     }
 
     function handleEvents(){
@@ -227,7 +243,7 @@ $(document).ready(function(){
         $('#selections').empty();
         var array = model[question];
         var arrayDOM = array.map(function(item){
-            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button></div>');
+            return $('<div><button type="button" class="btn btn-default btn-lg" value="'+ item.src + '">'+ item.text + '</button></div>');
         })
         $('#selections').append(arrayDOM);
     }
