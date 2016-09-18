@@ -30,86 +30,13 @@ $(document).ready(function(){
       showInfo(data);
       ignore_onend = true;
     }
-    if (!('webkitSpeechRecognition' in window)) {
-      upgrade();
-    } else {
-      start_button.style.display = 'inline-block';
-      var recognition = new webkitSpeechRecognition();
-      recognition.continuous = false;
-      recognition.interimResults = true;
-      recognition.onstart = function() {
-        recognizing = true;
-        showInfo('info_speak_now');
-        $('#start_button').addClass('icon_color');
-      };
-      recognition.onerror = function(event) {
-        if (event.error == 'no-speech') {
-          $('#start_button').removeClass('icon_color');
-          showInfo('info_no_speech');
-          ignore_onend = true;
-        }
-        if (event.error == 'audio-capture') {
-          $('#start_button').removeClass('icon_color');
-          showInfo('info_no_microphone');
-          ignore_onend = true;
-        }
-        if (event.error == 'not-allowed') {
-          if (event.timeStamp - start_timestamp < 100) {
-            showInfo('info_blocked');
-          } else {
-            showInfo('info_denied');
-          }
-          ignore_onend = true;
-        }
-      };
-      recognition.onend = function() {
-        recognizing = false;
-        if (ignore_onend) {
-          return;
-        }
-        $('#start_button').removeClass('icon_color');
-        if (!final_transcript) {
-          showInfo('info_start');
-          return;
-        }
-        showInfo('');
-        checkResult(final_transcript);
-        
-        // if (window.getSelection) {
-        //   window.getSelection().removeAllRanges();
-        //   var range = document.createRange();
-        //   range.selectNode(document.getElementById('final_span'));
-        //   window.getSelection().addRange(range);
-        // }
+    start_button.style.display = 'inline-block';
 
-      };
-      recognition.onresult = function(event) {
-        var interim_transcript = '';
-        for (var i = event.resultIndex; i < event.results.length; ++i) {
-          if (event.results[i].isFinal) {
-            final_transcript += event.results[i][0].transcript;
-          } else {
-            interim_transcript += event.results[i][0].transcript;
-          }
-        }
-        final_transcript = capitalize(final_transcript);
-        // final_span.innerHTML = linebreak(final_transcript);
-        // interim_span.innerHTML = linebreak(interim_transcript);
-        if (final_transcript || interim_transcript) {
-          showButtons('inline-block');
-        }
-        //recognition.stop();
-        
-      };
-    }
 
     bindClickEvents();
     handleEvents();
 
-    function upgrade() {
-      start_button.style.visibility = 'hidden';
-      showInfo('info_upgrade');
-    }
+  
     var two_line = /\n\n/g;
     var one_line = /\n/g;
     function linebreak(s) {
