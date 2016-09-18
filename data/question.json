@@ -21,19 +21,19 @@
    "question2":[  
       {
       	"text": "选项一",
-      	"src": "question2_1.m4a"
+      	"src": "../mp3/question2_1.m4a"
       },
       {
       	"text": "选项二",
-      	"src": "question2_2.m4a"
+      	"src": "../mp3/question2_2.m4a"
       },
       {
       	"text": "选项三",
-      	"src": "question2_3.m4a"
+      	"src": "../mp3/question2_3.m4a"
       },
       {
       	"text": "选项四",
-      	"src": "question2_4.m4a"
+      	"src": "../mp3/question2_4.m4a"
       }
    ],
    "answer_question2":"我要喝茶"

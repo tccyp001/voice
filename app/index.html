@@ -12,7 +12,7 @@
 
   <body>
 
-  <div class="body_wrapper">
+  <div class="body_wrapper" id='main'>
     <div class="header">
       <div class="logo" ><a href="/"><img src="../images/logo.png"></a></div>
       <div class="mic_icon">      
@@ -32,6 +32,7 @@
         <div><a href="/player" target="_blank"><button type="button" class="btn btn-danger btn-lg">打开播放页面</button></a></div>
         <!-- Button trigger modal -->
         <div><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">配置</button></div>
+        <div> <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">全屏</button></div>
       </div>
     </div>
 

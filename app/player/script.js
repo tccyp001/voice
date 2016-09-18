@@ -209,4 +209,4 @@ $(document).ready(function(){
       }
     bindClickEvents();
 
-})
+});

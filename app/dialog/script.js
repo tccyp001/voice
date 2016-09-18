@@ -10,82 +10,11 @@ $(document).ready(function(){
 
 
     showInfo('info_start');
-
-    var final_transcript = '';
-    var recognizing = false;
-    var ignore_onend;
-    var start_timestamp;
-    if (!('webkitSpeechRecognition' in window)) {
-      upgrade();
-    } else {
-      // start_button.style.display = 'inline-block';
-      var recognition = new webkitSpeechRecognition();
-      recognition.continuous = true;
-      recognition.interimResults = true;
-      recognition.onstart = function() {
-        recognizing = true;
-        showInfo('info_speak_now');
-        // $('#start_button').addClass('icon_color');
-      };
-      recognition.onerror = function(event) {
-        if (event.error == 'no-speech') {
-          // $('#start_button').removeClass('icon_color');
-          showInfo('info_no_speech');
-          ignore_onend = true;
-        }
-        if (event.error == 'audio-capture') {
-          // $('#start_button').removeClass('icon_color');
-          showInfo('info_no_microphone');
-          ignore_onend = true;
-        }
-        if (event.error == 'not-allowed') {
-          if (event.timeStamp - start_timestamp < 100) {
-            showInfo('info_blocked');
-          } else {
-            showInfo('info_denied');
-          }
-          ignore_onend = true;
-        }
-      };
-      recognition.onend = function() {
-        recognizing = false;
-        if (ignore_onend) {
-          return;
-        }
-        $('#start_button').removeClass('icon_color');
-        if (!final_transcript) {
-          showInfo('info_start');
-          return;
-        }
-        showInfo('');
-        checkResult(final_transcript);
-        
-        // if (window.getSelection) {
-        //   window.getSelection().removeAllRanges();
-        //   var range = document.createRange();
-        //   range.selectNode(document.getElementById('final_span'));
-        //   window.getSelection().addRange(range);
-        // }
-
-      };
-      recognition.onresult = function(event) {
-        var interim_transcript = '';
-        for (var i = event.resultIndex; i < event.results.length; ++i) {
-          if (event.results[i].isFinal) {
-            final_transcript += event.results[i][0].transcript;
-          } else {
-            interim_transcript += event.results[i][0].transcript;
-          }
-        }
-        final_transcript = capitalize(final_transcript);
-        // final_span.innerHTML = linebreak(final_transcript);
-        // interim_span.innerHTML = linebreak(interim_transcript);
-        if (final_transcript || interim_transcript) {
-          showButtons('inline-block');
-        }
-        recognition.stop();
-        
-      };
+    function voiceEnd(data){
+      checkResult(data);
+    }
+    function voiceError(data){
+      showInfo(data);
     }
 
     bindClickEvents();
@@ -103,23 +32,6 @@ $(document).ready(function(){
     var first_char = /\S/;
     function capitalize(s) {
       return s.replace(first_char, function(m) { return m.toUpperCase(); });
-    }
-
-    function startButton(event) {
-      if (recognizing) {
-        recognition.stop();
-        return;
-      }
-      final_transcript = '';
-      recognition.lang = 'cmn-Hans-CN';
-      recognition.start();
-      ignore_onend = false;
-      // final_span.innerHTML = '';
-      // interim_span.innerHTML = '';
-      // $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
-      showInfo('info_allow');
-      showButtons('none');
-      start_timestamp = event.timeStamp;
     }
 
     function showInfo(s) {
@@ -143,11 +55,11 @@ $(document).ready(function(){
     }
 
     function checkResult(data){
-        var index = model['question' + model.status].indexOf(data);
-        if(index == model['answer' + model.status]){
+        //var index = model['question' + model.status].indexOf(data);
+        if(data == model['answer_question' + model.status]){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
-            hightLightButton(index);
+            // hightLightButton(index);
         }
         else {
             sendMessage('play:wrong' + model.status);
@@ -167,10 +79,6 @@ $(document).ready(function(){
     }
 
     function bindClickEvents(){
-        // $('#start_button').on('click', function(e){
-        //     startButton(e);
-        // })
-
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
             if (msg === 'previous') {
@@ -203,15 +111,14 @@ $(document).ready(function(){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
                 // generateButtons('question' + model.status);
-                recognition.start();
+                sendMessage('voice:start');
             }
-            // if(msg == ('done:correct' + model.status)) {
-            //     model.status = model.status + 1;
-            //     generateButton('继续', 'question' + model.status);
-            // }
-            // if(msg == ('done:wrong' + model.status)) {
-            //     generateButton('再来一次', 'question' + model.status);
-            // }
+            if(msg.indexOf('result:')>=0) {
+              voiceEnd(msg.split(":")[1]);
+            }
+            if(msg.indexOf('voice_error:')>=0) {
+              voiceError(msg.split(":")[1]);
+            }
 
         });
     }
@@ -235,4 +142,46 @@ $(document).ready(function(){
         $('#selections').find('button').eq(index).css('background', 'orange');
     }
 
-})
+});
+var isFullScreen = false;
+function fullScreen(){
+  if(!isFullScreen) {
+   enterFullScreen();
+   isFullScreen = true;
+  }
+  else {
+    exitfullScreen();
+    isFullScreen =false;
+  }
+}
+
+function enterFullScreen(){
+    var docElm = document.documentElement;
+  
+  if (docElm.requestFullscreen) {
+      docElm.requestFullscreen();
+  }
+  else if (docElm.mozRequestFullScreen) {
+      docElm.mozRequestFullScreen();
+  }
+  else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen();
+  }
+  else if (docElm.msRequestFullscreen) {
+      docElm.msRequestFullscreen();
+  }
+}
+function exitfullScreen(){
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+  else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+  }
+  else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+  }
+  else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+  }
+}
