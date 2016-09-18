@@ -10,8 +10,8 @@ $(document).ready(function(){
       var recognizing = false;
       var ignore_onend;
       if (!('webkitSpeechRecognition' in window)) {
-      upgrade();
-    } else {
+        upgrade();
+      } else {
     //  start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
       recognition.continuous = false;
