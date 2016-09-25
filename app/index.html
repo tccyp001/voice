@@ -1,35 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HYSK</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-    </style>
+    <!-- CSS File -->
+    <link rel='stylesheet' href='../bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='../font-awesome/css/font-awesome.min.css' />
+    <link rel='stylesheet' href='voice/style.css' />
   </head>
+
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+
+  <div class="body_wrapper">
+    <div class="header">
+      <div class="logo" ><img src="../images/logo.png"></div>
+      <div class="mic_icon">      
+        <button id="start_button">
+          <i class="fa fa-microphone fa-3x" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="thumbnail" ><img src="../images/images.jpg"></div>
+      <div id="selections">
+        
+        <div><a href="/study"><button type="button" class="btn btn-primary btn-lg" value="play">学习模式</button></a></div>
+        <div><a href="/voice"><button type="button" class="btn btn-primary btn-lg" value="pause">xx模式1</button></div>
+        <div><a href="/voice"><button type="button" class="btn btn-primary btn-lg" value="replay">xx模式2</button></div>
+
+      </div>
+    </div>
+
+
+  </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      var socket = io();
-      $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-      });
-      socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-      });
-    </script>
+    <script src="../jquery/dist/jquery.js"></script>  
   </body>
 </html>
