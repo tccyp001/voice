@@ -9,7 +9,7 @@ $('document').ready(function(){
 
 	$.get('/api/movie').then(function(data){
       var movieModel = data;
-      generateForm(movieModel, 'movie');
+      generateInput(movieModel, 'movie');
     }); 
 
 	$('#submit_question').on('click', function(){
@@ -22,12 +22,6 @@ $('document').ready(function(){
 			obj[key] = values;		
 			}	
 		}
-		console.log(obj);
-		console.log(JSON.stringify(obj));
-		// $.post('/api/question', JSON.stringify(obj), function(data){
-		// 	console.log('done');
-		// 	$(location).attr('href', '/')
-		// })
 		$.ajax({
 		    contentType: 'application/json',
 		    data: JSON.stringify(obj),
@@ -39,7 +33,28 @@ $('document').ready(function(){
 		});
 	})
 
+	$('#submit_movie').on('click', function(){
+		var obj = $('.form_movie').find('textarea').val();
+		$.ajax({
+		    contentType: 'application/json',
+		    data: obj,
+		    complete: function(){
+		    	 $('#myModal').modal('hide');
+		    },
+		    type: 'POST',
+		    url: '/api/movie'
+		});		
+
+	});
+
 });
+
+function generateInput(data, type) {
+	var $input = $('<div></div>');
+	var jsondata = JSON.stringify(data, null, '\t');
+	$input.append($('<textarea name="' + type + '"></textarea>').val(jsondata));
+	$('.form_' + type).append($input);
+}
 
 function generateForm(data, type) {
 	var pattern = /^question/i;

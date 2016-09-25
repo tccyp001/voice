@@ -139,6 +139,13 @@
 .form_question input[type=radio]:hover {
   cursor: pointer;
 }
+.form_movie >div {
+  margin: 20px;
+}
+.form_movie textarea {
+  width: 400px;
+  height: 400px;
+}
 
 a:link {
   color:#000;
