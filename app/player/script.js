@@ -7,10 +7,12 @@ $(document).ready(function(){
         "question2": { src:"../video/normal.mp4", "start":4.7, "end":8.48},
         "question3": { src:"../video/normal.mp4", "start":9, "end":59},
         "correct1": { src:"../video/expression.mp4", "start":14, "end":16},   
+        "correct2": { src:"../video/expression.mp4", "start":0, "end":2},   
         "wrong1": { src:"../video/expression.mp4", "start":18.7, "end":20.2},
-        "normalall": { src:"../video/normal.mp4", "start":0, "end":59},
-        "slowall": { src:"../video/lower_speed.mp4", "start":0, "end":59},
-        "superslowall": { src:"../video/super_low_speed.mp4", "start":0, "end":59},
+        "wrong2": { src:"../video/expression.mp4", "start":28, "end":30},
+        "normal": { src:"../video/normal.mp4", "start":0, "end":59},
+        "slow": { src:"../video/lower_speed.mp4", "start":0, "end":59},
+        "superslow": { src:"../video/super_low_speed.mp4", "start":0, "end":59},
       }
       var correctList = [{"start":10, "end":20}];
       var wrongList = [{"start":10, "end":20}];
@@ -22,6 +24,7 @@ $(document).ready(function(){
         console.log(msg);
       }
       function playClip(clipName, callback) {
+        console.log(clipName);
         var curClip = clips[clipName];
         currentClip = clipName;
         player.pause();
@@ -38,9 +41,28 @@ $(document).ready(function(){
   
       socket.on('chat message', function(msg){
         actionLog(msg);
-        if(msg.indexOf('play') >=0) {
+        if(msg.indexOf('play:') >=0) {
           var clipName = msg.split(":")[1];
-          playClip(clipName);
+          if(clipName.indexOf('wrong') >=0) {
+            playWrong(clipName);
+          }
+          else if(clipName.indexOf('correct') >=0) {
+            playCorrect(clipName);
+          }
+          else {
+            playClip(clipName);   
+          }
+
+        }
+        if(msg.indexOf('set_speed')>=0) {
+          var speed = msg.split(":")[1];
+          setSpeed(speed);
+        }
+        if(msg=='play') {
+          play();
+        }
+        if(msg=='pause') {
+          pause();
         }
         if(msg=='replay') {
           replay();
@@ -59,7 +81,6 @@ $(document).ready(function(){
           player.pause();
           player.currentTime = '0';
           player.play();
-
       }
       function next(){
         player.pause();
@@ -72,11 +93,27 @@ $(document).ready(function(){
           player.play();
         */
       }
-      function playq3(){
-        playClip("question3");
+      function setSpeed(speed){
+        player.pause();
+        player.src=clips[speed].src;
+        player.load();
+        stopAt = -1;
       }
-      function wrong(){
-        playClip("wrong1", playq3);
+      function playWrong(clipName){
+        var qIndex = parseInt(clipName.replace('wrong', ''));
+        var nextClip = 'question' + qIndex;
+        console.log(nextClip);
+
+        playClip(clipName, playClip.bind(null, nextClip, null));
+        //
+      }
+
+      function playCorrect(clipName){
+        var qIndex = parseInt(clipName.replace('correct', ''));
+        var nextClip = 'question' + (qIndex+1);
+        console.log(nextClip);
+
+        playClip(clipName, playClip.bind(null, nextClip, null));
         //
         
       }
