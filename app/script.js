@@ -22,12 +22,21 @@ $('document').ready(function(){
 			obj[key] = values;		
 			}	
 		}
+		console.log(obj);
 		console.log(JSON.stringify(obj));
-		$.post('/api/question', JSON.stringify(obj), function(data){
-			console.log('done');
-			$(location).attr('href', '/')
-		})
-
+		// $.post('/api/question', JSON.stringify(obj), function(data){
+		// 	console.log('done');
+		// 	$(location).attr('href', '/')
+		// })
+		$.ajax({
+		    contentType: 'application/json',
+		    data: JSON.stringify(obj),
+		    complete: function(){
+		    	 $('#myModal').modal('hide');
+		    },
+		    type: 'POST',
+		    url: '/api/question'
+		});
 	})
 
 });
@@ -41,7 +50,7 @@ function generateForm(data, type) {
 			for (var i = 0; i < data[key].length; i++) {
 				var $elem = $('<input type="text" name="' + key + '" value="'+ data[key][i] +' ">').val(data[key][i]);
 				$inputGroup.append($elem);
-				if (data['answer_'+ key] === i) {
+				if (data['answer_'+ key] - 0 === i) {
 					$inputGroup.append($('<input type="radio" name="answer_' + key + '" checked >').val(i));
 				} else {
 					$inputGroup.append($('<input type="radio"  name="answer_' + key + '">').val(i));

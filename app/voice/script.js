@@ -142,7 +142,7 @@ $(document).ready(function(){
 
     function checkResult(data){
         var index = model['question' + model.status].indexOf(data);
-        if(index == model['answer_question' + model.status]){
+        if(index == (model['answer_question' + model.status] - 0)){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
             hightLightButton(index);
