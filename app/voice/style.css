@@ -31,6 +31,10 @@
   width: 400px;
 }
 
+.content .thumbnail {
+  margin-bottom: 0;
+}
+
 .content button {
   width: 180px;
 }
@@ -45,11 +49,30 @@
   margin: 10px 0;
 }
 
-.btn-groups {
+.input-groups {
   width: 60%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-groups span input {
+  margin-right: 5px;
+}
+
+.input-groups input:hover {
+  cursor: pointer;
+}
+
+.btn-groups {
+  width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
+}
+
+.btn-groups button{
+  width: 150px;
 }
 
 .icon_color {

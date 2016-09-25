@@ -48,12 +48,16 @@
       <div id="continue_button"></div>
     </div>
 
-    <div class="btn-groups">
-      <button type="button" class="btn btn-primary btn-lg" value="question1">开始视频</button>
-      <button type="button" class="btn btn-primary btn-lg" value="normalall">正常速度</button>
-      <button type="button" class="btn btn-primary btn-lg" value="slowall">慢速</button>
-      <button type="button" class="btn btn-primary btn-lg" value="superslowall">超慢速</button>
+    <div class="input-groups">
+      <span><input type="radio" name="speed" checked value="set_speed:normal">正常速度</span>
+      <span><input type="radio" name="speed" value="set_speed:slow">慢速</span>
+      <span><input type="radio" name="speed" value="set_speed:super_slow">超慢速</span>
+    </div>
 
+    <div class="btn-groups">
+      <button type="button" class="btn btn-primary btn-lg" value="play">播放</button>
+      <button type="button" class="btn btn-primary btn-lg" value="pause">暂停</button>
+      <button type="button" class="btn btn-primary btn-lg" value="replay">重放</button>
     </div>
   </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>

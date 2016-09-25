@@ -157,7 +157,7 @@ $(document).ready(function(){
 
     function sendMessage(msg){
       var socket = io();
-      socket.emit('chat message', 'play:' + msg);        
+      socket.emit('chat message', msg);        
     }
 
     function bindClickEvents(){
@@ -170,6 +170,11 @@ $(document).ready(function(){
             $('#selections').empty();
             sendMessage(msg);
             model.status = 1;
+        })
+
+        $('.input-groups').on('click', 'input', function(){
+            var msg = $(this).attr('value');
+            sendMessage(msg);
         })
 
         $('#continue_button').on('click','button', function(){
