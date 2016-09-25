@@ -26,15 +26,62 @@
       <div id="selections">
         
         <div><a href="/study"><button type="button" class="btn btn-primary btn-lg" value="play">学习模式</button></a></div>
-        <div><a href="/voice"><button type="button" class="btn btn-primary btn-lg" value="pause">语音选答案</button></div>
-        <div><a href="/dialog"><button type="button" class="btn btn-primary btn-lg" value="replay">互动语音对话</button></div>
+        <div><a href="/voice"><button type="button" class="btn btn-primary btn-lg" value="pause">语音选答案</button></a></div>
+        <div><a href="/dialog"><button type="button" class="btn btn-primary btn-lg" value="replay">互动语音对话</button></a></div>
+        <!-- Button trigger modal -->
+        <div><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">配置</button></div>
+      </div>
+    </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">配置</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">影片配置</a></li>
+              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">题目配置</a></li>
+            </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+              <div role="tabpanel" class="tab-pane active" id="home">
+                <form action="/post_move">
+
+                </form>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="profile">
+                <form action="/post_move">
+                  <div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
 
 
   </div>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="../jquery/dist/jquery.js"></script>  
+    <script src="../jquery/dist/jquery.js"></script>
+    <script src='../bootstrap/dist/js/bootstrap.min.js' />
+    <script>
+    $('document').ready(function(){
+      $('#myModal').modal()  
+    })
+    </script>
   </body>
 </html>

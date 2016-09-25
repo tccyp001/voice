@@ -2,14 +2,10 @@
 
 
 $(document).ready(function(){
-    var model = {
-        "question1": ['我要点菜', '菜要点我', '我要菜', '我要饭'],
-        "answer1": 0,
-        "question2": ['我要喝茶', '我要喝菜', '我要菜', '我喝要茶'],
-        "answer2": 0,
-        'status': null
-    }
-
+    var model;
+    $.get('/api/question').then(function(data){
+      model = data;
+    });
 
     showInfo('info_start');
 
