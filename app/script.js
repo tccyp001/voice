@@ -4,7 +4,7 @@
 $('document').ready(function(){
 	$.get('/api/question').then(function(data){
       var questionModel = data;
-      generateForm(questionModel, 'question');
+      generateInput(questionModel, 'question');
     }); 
 
 	$.get('/api/movie').then(function(data){
@@ -12,29 +12,44 @@ $('document').ready(function(){
       generateInput(movieModel, 'movie');
     }); 
 
+	// $('#submit_question').on('click', function(){
+	// 	var obj = $('.form_question').serializeObject();
+	// 	for (var key in obj) {
+	// 		var pattern = /^question/i;
+	// 		if(pattern.test(key)) {
+	// 		var values = $('input[name="' + key + '"]')
+	// 		              .map(function(){return $(this).val();}).get();
+	// 		obj[key] = values;		
+	// 		}	
+	// 	}
+	// 	$.ajax({
+	// 	    contentType: 'application/json',
+	// 	    data: JSON.stringify(obj),
+	// 	    complete: function(){
+	// 	    	 $('#myModal').modal('hide');
+	// 	    },
+	// 	    type: 'POST',
+	// 	    url: '/api/question'
+	// 	});
+	// })
 	$('#submit_question').on('click', function(){
-		var obj = $('.form_question').serializeObject();
-		for (var key in obj) {
-			var pattern = /^question/i;
-			if(pattern.test(key)) {
-			var values = $('input[name="' + key + '"]')
-			              .map(function(){return $(this).val();}).get();
-			obj[key] = values;		
-			}	
-		}
+		var obj = $('[name="question"]').val();
 		$.ajax({
 		    contentType: 'application/json',
-		    data: JSON.stringify(obj),
+		    data: obj,
 		    complete: function(){
 		    	 $('#myModal').modal('hide');
 		    },
 		    type: 'POST',
 		    url: '/api/question'
-		});
-	})
+		});		
+
+	});
+
+
 
 	$('#submit_movie').on('click', function(){
-		var obj = $('.form_movie').find('textarea').val();
+		var obj = $('[name="movie"]').val();
 		$.ajax({
 		    contentType: 'application/json',
 		    data: obj,

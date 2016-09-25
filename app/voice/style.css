@@ -142,7 +142,7 @@
 .form_movie >div {
   margin: 20px;
 }
-.form_movie textarea {
+textarea {
   width: 400px;
   height: 400px;
 }
