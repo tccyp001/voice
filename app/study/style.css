@@ -31,6 +31,9 @@
   width: 400px;
 }
 
+.content .thumbnail {
+  margin-bottom: 0;
+}
 
 .content button {
   width: 180px;
@@ -62,12 +65,15 @@
 }
 
 .btn-groups {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
 }
 
+.btn-groups button{
+  width: 150px;
+}
 
 .icon_color {
   color: red;

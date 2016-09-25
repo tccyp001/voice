@@ -20,23 +20,23 @@ $(document).ready(function(){
     if (!('webkitSpeechRecognition' in window)) {
       upgrade();
     } else {
-      start_button.style.display = 'inline-block';
+      // start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
       recognition.continuous = true;
       recognition.interimResults = true;
       recognition.onstart = function() {
         recognizing = true;
         showInfo('info_speak_now');
-        $('#start_button').addClass('icon_color');
+        // $('#start_button').addClass('icon_color');
       };
       recognition.onerror = function(event) {
         if (event.error == 'no-speech') {
-          $('#start_button').removeClass('icon_color');
+          // $('#start_button').removeClass('icon_color');
           showInfo('info_no_speech');
           ignore_onend = true;
         }
         if (event.error == 'audio-capture') {
-          $('#start_button').removeClass('icon_color');
+          // $('#start_button').removeClass('icon_color');
           showInfo('info_no_microphone');
           ignore_onend = true;
         }
@@ -118,7 +118,7 @@ $(document).ready(function(){
       ignore_onend = false;
       // final_span.innerHTML = '';
       // interim_span.innerHTML = '';
-      $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
+      // $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
       showInfo('info_allow');
       showButtons('none');
       start_timestamp = event.timeStamp;
@@ -163,9 +163,9 @@ $(document).ready(function(){
     }
 
     function bindClickEvents(){
-        $('#start_button').on('click', function(e){
-            startButton(e);
-        })
+        // $('#start_button').on('click', function(e){
+        //     startButton(e);
+        // })
 
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
@@ -191,7 +191,8 @@ $(document).ready(function(){
         socket.on('chat message', function(msg){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
-                generateButtons('question' + model.status);
+                // generateButtons('question' + model.status);
+                recognition.start();
             }
             // if(msg == ('done:correct' + model.status)) {
             //     model.status = model.status + 1;
