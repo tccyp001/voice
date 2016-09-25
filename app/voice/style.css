@@ -127,6 +127,19 @@
   }
 
 
+.form_question {
+  display: flex;
+  margin: 20px auto;
+}
+
+.form_question input[type=radio] {
+  margin-left: 5px;
+}
+
+.form_question input[type=radio]:hover {
+  cursor: pointer;
+}
+
 a:link {
   color:#000;
   text-decoration: none;
