@@ -12,24 +12,42 @@ $('document').ready(function(){
       generateForm(movieModel, 'movie');
     }); 
 
+	$('#submit_question').on('click', function(){
+		var obj = $('.form_question').serializeObject();
+		for (var key in obj) {
+			var pattern = /^question/i;
+			if(pattern.test(key)) {
+			var values = $('input[name="' + key + '"]')
+			              .map(function(){return $(this).val();}).get();
+			obj[key] = values;		
+			}	
+		}
+		console.log(JSON.stringify(obj));
+		$.post('/api/question', JSON.stringify(obj), function(data){
+			console.log('done');
+			$(location).attr('href', '/')
+		})
+
+	})
+
 });
 
 function generateForm(data, type) {
-	var pattern = /^question/i
+	var pattern = /^question/i;
 	for (var key in data) {
 		if(pattern.test(key) && type === 'question') {
-			console.log(key);
 			var $inputGroup = $('<div></div>');
 			$inputGroup.append($('<div>题目选项</div>'))
 			for (var i = 0; i < data[key].length; i++) {
-				$inputGroup.append($('<input type="text">').val(data[key][i]));
+				var $elem = $('<input type="text" name="' + key + '" value="'+ data[key][i] +' ">').val(data[key][i]);
+				$inputGroup.append($elem);
 				if (data['answer_'+ key] === i) {
-					$inputGroup.append($('<input type="radio" name="' + key + '" checked>'));
+					$inputGroup.append($('<input type="radio" name="answer_' + key + '" checked >').val(i));
 				} else {
-					$inputGroup.append($('<input type="radio"  name="' + key + '">'));
+					$inputGroup.append($('<input type="radio"  name="answer_' + key + '">').val(i));
 				}
 			}
 		}
-		$('.form_question').append($inputGroup);
+		$('.form_' + type).append($inputGroup);
 	}
 }

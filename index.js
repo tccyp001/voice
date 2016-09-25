@@ -42,8 +42,9 @@ app.get('/api/:name', function(req, res){
 
 app.post('/api/:name', function(req, res){
 	var data = req.body;
-	var name = req.query.name;
-	fs.writeFile('data/' + name + ".json", JSON.stringify(data), function(err, data) {
+	var name = req.params.name;
+	console.log(data);
+	fs.writeFile('data/' + name + ".json", data, function(err, data) {
 	    if(err) {
 	        res.send(err);
 	    }

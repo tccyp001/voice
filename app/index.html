@@ -55,19 +55,20 @@
                 <form action="/api/movie" method="post" class="form_movie">
 
                 </form>
+                <div><input type="submit" id="submit_movie"></div>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="profile">
                 <form action="/api/question" method="post" class="form_question">
-                  <div>
-                  </div>
+                  
                 </form>
+
+                <div><input type="submit" id="submit_question"></div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </div>
@@ -78,6 +79,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="../jquery/dist/jquery.js"></script>
     <script src='../bootstrap/dist/js/bootstrap.min.js'></script>
+    <script src='../jquery-serialize-object/dist/jquery.serialize-object.min.js'></script>
     <script src='script.js'></script>
   </body>
 </html>
