@@ -2,13 +2,11 @@
 
 
 $(document).ready(function(){
-    var model = {
-        "question1": ['我要点菜', '菜要点我', '我要菜', '我要饭'],
-        "answer1": 0,
-        "question2": ['我要喝茶', '我要喝菜', '我要菜', '我喝要茶'],
-        "answer2": 0,
-        'status': null
-    }
+    var model;
+    $.get('/api/question').then(function(data){
+      model = data;
+      model.status = 1;
+    });
 
 
     showInfo('info_start');
@@ -162,6 +160,12 @@ $(document).ready(function(){
       socket.emit('chat message', msg);        
     }
 
+    generatePerviousNextButton(1);
+    function generatePerviousNextButton(index){
+        $('[name="previous"]').text('上一题(' + (index-1) +')');
+        $('[name="next"]').text('下一题(' + (index+1) +')');
+    }
+
     function bindClickEvents(){
         // $('#start_button').on('click', function(e){
         //     startButton(e);
@@ -169,9 +173,16 @@ $(document).ready(function(){
 
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
-            $('#selections').empty();
+            if (msg === 'previous') {
+              model.status--;
+              msg = 'play:question' + model.status;
+            } else if(msg === 'next') {
+              model.status++;
+              msg = 'play:question' + model.status;
+            }
+            generatePerviousNextButton(model.status);
             sendMessage(msg);
-            model.status = 1;
+            $('#selections').empty();
         })
 
         $('.input-groups').on('click', 'input', function(){
