@@ -3,11 +3,9 @@
 
 $(document).ready(function(){
     var model;
-
+    var ipad_voice = false;
     var audioElement = document.createElement('audio');
-
-        audioElement.setAttribute('autoplay', 'autoplay');
-
+    audioElement.setAttribute('autoplay', 'autoplay');
 
     $.get('/api/question').then(function(data){
       model = data;
@@ -19,12 +17,22 @@ $(document).ready(function(){
     var recognizing = false;
     var ignore_onend;
     var start_timestamp;
+
+    function voiceEnd(data){
+      $('#start_button').removeClass('icon_color');
+      checkResult(data);
+    }
+    function voiceError(data){
+      $('#start_button').removeClass('icon_color');
+      showInfo(data);
+      ignore_onend = true;
+    }
     if (!('webkitSpeechRecognition' in window)) {
       upgrade();
     } else {
       start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
-      recognition.continuous = true;
+      recognition.continuous = false;
       recognition.interimResults = true;
       recognition.onstart = function() {
         recognizing = true;
@@ -87,7 +95,7 @@ $(document).ready(function(){
         if (final_transcript || interim_transcript) {
           showButtons('inline-block');
         }
-        recognition.stop();
+        //recognition.stop();
         
       };
     }
@@ -110,14 +118,21 @@ $(document).ready(function(){
     }
 
     function startButton(event) {
-      if (recognizing) {
-        recognition.stop();
-        return;
+
+      if(ipad_voice){
+        if (recognizing) {
+          recognition.stop();
+          return;
+        }
+        final_transcript = '';
+        recognition.lang = 'cmn-Hans-CN';
+        recognition.start();
+        ignore_onend = false;
       }
-      final_transcript = '';
-      recognition.lang = 'cmn-Hans-CN';
-      recognition.start();
-      ignore_onend = false;
+      else {
+        sendMessage('voice:start');
+      }
+
       // final_span.innerHTML = '';
       // interim_span.innerHTML = '';
       $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
@@ -147,8 +162,8 @@ $(document).ready(function(){
     }
 
     function checkResult(data){
-        var index = model['question' + model.status].indexOf(data);
-        if(index == (model['answer_question' + model.status] - 0)){
+        //var index = model['question' + model.status].indexOf(data);
+        if(data == model['answer_question' + model.status]){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
             hightLightButton(index);
@@ -201,6 +216,12 @@ $(document).ready(function(){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
                 generateButtons('question' + model.status);
+            }
+            if(msg.indexOf('result:')>=0) {
+              voiceEnd(msg.split(":")[1]);
+            }
+            if(msg.indexOf('voice_error:')>=0) {
+              voiceError(msg.split(":")[1]);
             }
             // if(msg == ('done:correct' + model.status)) {
             //     model.status = model.status + 1;
