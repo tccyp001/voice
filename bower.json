@@ -18,6 +18,7 @@
   "dependencies": {
     "jquery": "^3.1.0",
     "bootstrap": "^3.3.7",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "jquery-serialize-object": "^2.5.0"
   }
 }
