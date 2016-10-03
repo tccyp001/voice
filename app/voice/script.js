@@ -21,6 +21,8 @@ $(document).ready(function(){
 
     function voiceEnd(data){
       $('#start_button').removeClass('icon_color');
+
+      showInfo('info_start');
       checkResult(data);
     }
     function voiceError(data){
@@ -136,8 +138,8 @@ $(document).ready(function(){
 
       // final_span.innerHTML = '';
       // interim_span.innerHTML = '';
-      $('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
-      showInfo('info_allow');
+      //$('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
+      showInfo('info_speak_now');
       showButtons('none');
       start_timestamp = event.timeStamp;
     }
