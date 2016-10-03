@@ -167,6 +167,7 @@ $(document).ready(function(){
         if(data == model['answer_question' + model.status]){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
+            generatePerviousNextButton(model.status);
             // hightLightButton(index);
         }
         else {
