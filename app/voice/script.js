@@ -229,7 +229,7 @@ $(document).ready(function(){
         socket.on('chat message', function(msg){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
-                generateButtons('question' + model.status);
+                generateButtons('question' + model.status, model.status);
             }
             if(msg.indexOf('result:')>=0) {
               voiceEnd(msg.split(":")[1]);
@@ -248,9 +248,11 @@ $(document).ready(function(){
         });
     }
 
-    function generateButtons(question){
+    function generateButtons(question, status){
         $('#selections').empty();
         var array = model[question];
+        var title = $('<div> 题目 '+ status +'</div>')
+        $('#selections').append(title);
         var arrayDOM = array.map(function(item){
             return $('<div><button type="button" class="btn btn-default btn-lg" value="'+ item.src + '">'+ item.text + '</button></div>');
         })
