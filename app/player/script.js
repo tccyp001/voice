@@ -61,6 +61,10 @@ $(document).ready(function(){
         
       };
     }
+    function stopRecognition() {
+      final_transcript = '';
+      recognition.stop();
+    }
     function startRecognition() {
       final_transcript = '';
       recognition.lang = 'cmn-Hans-CN';
@@ -97,6 +101,9 @@ $(document).ready(function(){
       function playClip(clipName, callback) {
         console.log(clipName);
         var curClip = clips[clipName];
+        if(curClip ==null) {
+             socket.emit('chat message', "done_all:no_more" );
+        }
         currentClip = clipName;
         player.pause();
         if(player.currentSrc != curClip.src) {
@@ -141,6 +148,9 @@ $(document).ready(function(){
         if(msg=='voice:start') {
           startRecognition();
         }
+        if(msg=='voice:end') {
+          stopRecognition();
+        }
       });
       function fullScreen(){
         player.webkitEnterFullscreen();
@@ -177,8 +187,8 @@ $(document).ready(function(){
         var qIndex = parseInt(clipName.replace('wrong', ''));
         var nextClip = 'question' + qIndex;
         console.log(nextClip);
-
-        playClip(clipName, playClip.bind(null, nextClip, null));
+        playClip(clipName);
+        //playClip(clipName, playClip.bind(null, nextClip, null));
         //
       }
 
@@ -192,7 +202,7 @@ $(document).ready(function(){
         
       }
       function checkStop(callback){
-        if(stopAt>0 && player.currentTime>=stopAt) {
+        if(stopAt>0 && player.currentTime>=stopAt || (player.currentTime + 0.01> player.duration)) {
           player.pause();
           stopAt = -1;
           socket.emit('chat message', "done:" + currentClip);

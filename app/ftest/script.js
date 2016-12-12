@@ -3,55 +3,29 @@
 
 $(document).ready(function(){
     var model;
+    var correctCnt = 0;
+    var errorCnt = 0;
     var ipad_voice = false;
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('autoplay', 'autoplay');
-
+    var recognizing = false;
     $.get('/api/question').then(function(data){
       model = data;
       model.status = 1;
     });
 
+
     showInfo('info_start');
-
-    var final_transcript = '';
-    var recognizing = false;
-    var ignore_onend;
-    var start_timestamp;
-
     function voiceEnd(data){
-      $('#start_button').removeClass('icon_color');
-
-      showInfo('info_start');
       checkResult(data);
     }
     function voiceError(data){
-      $('#start_button').removeClass('icon_color');
       showInfo(data);
-      ignore_onend = true;
     }
-    start_button.style.display = 'inline-block';
-
-
-    bindClickEvents();
-    handleEvents();
-
-  
-    var two_line = /\n\n/g;
-    var one_line = /\n/g;
-    function linebreak(s) {
-      return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
-    }
-    var first_char = /\S/;
-    function capitalize(s) {
-      return s.replace(first_char, function(m) { return m.toUpperCase(); });
-    }
-
     function startButton(event) {
 
       if(ipad_voice){
         if (recognizing) {
           recognition.stop();
+          $('#start_button').find('i').removeClass('mic_red').addClass('fa-microphone');
           return;
         }
         final_transcript = '';
@@ -60,15 +34,36 @@ $(document).ready(function(){
         ignore_onend = false;
       }
       else {
-        sendMessage('voice:start');
+        if(recognizing==false) {
+          recognizing = true;
+          sendMessage('voice:start');
+          showInfo('info_speak_now');
+          $('#start_button').find('i').addClass('mic_red');  
+        }
+        else if(recognizing ==true) {
+          recognizing = false;
+          sendMessage('voice:end');
+          showInfo('info_default');
+          $('#start_button').find('i').removeClass('mic_red');
+        }
+        
       }
+    }
+    bindClickEvents();
+    handleEvents();
 
-      // final_span.innerHTML = '';
-      // interim_span.innerHTML = '';
-      //$('#start_button').find('i').removeClass('fa-microphone').addClass('fa-microphone-slash');
-      showInfo('info_speak_now');
-      showButtons('none');
-      start_timestamp = event.timeStamp;
+    function upgrade() {
+      start_button.style.visibility = 'hidden';
+      showInfo('info_upgrade');
+    }
+    var two_line = /\n\n/g;
+    var one_line = /\n/g;
+    function linebreak(s) {
+      return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+    }
+    var first_char = /\S/;
+    function capitalize(s) {
+      return s.replace(first_char, function(m) { return m.toUpperCase(); });
     }
 
     function showInfo(s) {
@@ -93,15 +88,19 @@ $(document).ready(function(){
 
     function checkResult(data){
         //var index = model['question' + model.status].indexOf(data);
+        model.status = model.status + 1;
         if(data == model['answer_question' + model.status]){
-            sendMessage('play:correct' + model.status);
-            model.status = model.status + 1;
-            generatePerviousNextButton(model.status);
+           // sendMessage('play:question' + model.status);
+       //     model.status = model.status + 1;
+           // generatePerviousNextButton(model.status);
             // hightLightButton(index);
+            corretCnt += 1;
         }
         else {
-            sendMessage('play:wrong' + model.status);
-      }
+            errorCnt +=1;
+            //sendMessage('play:wrong' + model.status);
+        }
+      sendMessage('play:question' + model.status);
       $('#selections').empty();
     }
 
@@ -120,7 +119,6 @@ $(document).ready(function(){
         $('#start_button').on('click', function(e){
             startButton(e);
         })
-
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
             if(msg ==='play:question1') {
@@ -148,50 +146,48 @@ $(document).ready(function(){
             sendMessage(msg);
             $('#continue_button').empty();
         })
-
-        $('#selections').on('click', 'button', function(){
-            var src = $(this).attr('value');
-            audioElement.setAttribute('src', src);
-            audioElement.play();
-        })
-
     }
-
+    function micOff() {
+      showInfo('info_default');
+      $('#start_button').find('i').removeClass('mic_red'); 
+    }
+    function micOnSendMsg() {
+        sendMessage('voice:start');
+        showInfo('info_speak_now');
+        $('#start_button').find('i').addClass('mic_red'); 
+    }
     function handleEvents(){
         var socket = io();
         socket.on('chat message', function(msg){
             console.log(msg);   
+
             if(msg == ('done:question' + model.status)) {
-                generateButtons('question' + model.status, model.status);
-            }
-            //if(msg == ('done:wrong' + model.status)) {
                 // generateButtons('question' + model.status);
-          //      sendMessage('voice:start');
-          //  }
+              micOnSendMsg();
+            }
+            if(msg == ('done:wrong' + model.status)) {
+                // generateButtons('question' + model.status);
+               micOnSendMsg();
+            }
             if(msg.indexOf('result:')>=0) {
               voiceEnd(msg.split(":")[1]);
             }
             if(msg.indexOf('voice_error:')>=0) {
               voiceError(msg.split(":")[1]);
             }
-            // if(msg == ('done:correct' + model.status)) {
-            //     model.status = model.status + 1;
-            //     generateButton('继续', 'question' + model.status);
-            // }
-            // if(msg == ('done:wrong' + model.status)) {
-            //     generateButton('再来一次', 'question' + model.status);
-            // }
+
+            if(msg.indexOf('done_all')>=0){
+              console.log("show score");
+            }
 
         });
     }
 
-    function generateButtons(question, status){
+    function generateButtons(question){
         $('#selections').empty();
         var array = model[question];
-        var title = $('<div> 题目 '+ status +'</div>')
-        $('#selections').append(title);
         var arrayDOM = array.map(function(item){
-            return $('<div><button type="button" class="btn btn-default btn-lg" value="'+ item.src + '">'+ item.text + '</button></div>');
+            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button></div>');
         })
         $('#selections').append(arrayDOM);
     }

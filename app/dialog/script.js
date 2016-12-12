@@ -8,7 +8,8 @@ $(document).ready(function(){
       model.status = 1;
     });
 
-
+    var ipad_voice = false;
+    var recognizing = false;
     showInfo('info_start');
     function voiceEnd(data){
       checkResult(data);
@@ -33,7 +34,36 @@ $(document).ready(function(){
     function capitalize(s) {
       return s.replace(first_char, function(m) { return m.toUpperCase(); });
     }
+    function startButton(event) {
 
+      if(ipad_voice){
+        if (recognizing) {
+          recognition.stop();
+          $('#start_button').find('i').removeClass('mic_red').addClass('fa-microphone');
+          return;
+        }
+        final_transcript = '';
+        recognition.lang = 'cmn-Hans-CN';
+        recognition.start();
+        ignore_onend = false;
+      }
+      else {
+        if(recognizing==false) {
+          recognizing = true;
+          sendMessage('voice:start');
+          showInfo('info_speak_now');
+          $('#start_button').find('i').addClass('mic_red');  
+        }
+        else if(recognizing ==true) {
+          recognizing = false;
+          sendMessage('voice:end');
+          showInfo('info_default');
+          $('#start_button').find('i').removeClass('mic_red');
+        }
+        
+      }
+
+    }
     function showInfo(s) {
       if (s) {
         for (var child = info.firstChild; child; child = child.nextSibling) {
@@ -60,10 +90,12 @@ $(document).ready(function(){
             sendMessage('play:correct' + model.status);
             model.status = model.status + 1;
             generatePerviousNextButton(model.status);
+            micOff();
             // hightLightButton(index);
         }
         else {
             sendMessage('play:wrong' + model.status);
+            micOff();
       }
       $('#selections').empty();
     }
@@ -80,8 +112,14 @@ $(document).ready(function(){
     }
 
     function bindClickEvents(){
+        $('#start_button').on('click', function(e){
+            startButton(e);
+        })
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
+            if(msg ==='play:question1') {
+              model.status = 1;
+            }
             if (msg === 'previous') {
               model.status--;
               msg = 'play:question' + model.status;
@@ -105,14 +143,25 @@ $(document).ready(function(){
             $('#continue_button').empty();
         })
     }
-
+    function micOff() {
+      showInfo('info_default');
+      $('#start_button').find('i').removeClass('mic_red'); 
+    }
+    function micOnSendMsg() {
+        sendMessage('voice:start');
+        showInfo('info_speak_now');
+        $('#start_button').find('i').addClass('mic_red'); 
+    }
     function handleEvents(){
         var socket = io();
         socket.on('chat message', function(msg){
             console.log(msg);   
-            if(msg == ('done:question' + model.status)) {
+            if(msg == ('done:question' + model.status)) { 
+                micOnSendMsg();
+            }
+            if(msg == ('done:wrong' + model.status)) {
                 // generateButtons('question' + model.status);
-                sendMessage('voice:start');
+                micOnSendMsg();
             }
             if(msg.indexOf('result:')>=0) {
               voiceEnd(msg.split(":")[1]);

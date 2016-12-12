@@ -16,9 +16,19 @@
 }
 
 .header .logo img{
-  width: 60%;
+  width: 100px;
+  height: 70px;
 }
 
+.logo_text{
+  font-size: 20pt;
+  color: #007FFF;
+  font-weight: 400;
+  display: inline;
+}
+.mic_red {
+  color: red;
+}
 .header img.mic {
   width: 100%;
 }

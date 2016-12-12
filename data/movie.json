@@ -1,1 +1,24 @@
-{"question1":{"src":"../video/normal.mp4","start":0,"end":4},"question2":{"src":"../video/normal.mp4","start":4.7,"end":8.48},"question3":{"src":"../video/normal.mp4","start":9,"end":59},"correct1":{"src":"../video/expression.mp4","start":14,"end":16},"correct2":{"src":"../video/expression.mp4","start":0,"end":2},"wrong1":{"src":"../video/expression.mp4","start":18.7,"end":20.2},"wrong2":{"src":"../video/expression.mp4","start":28,"end":30},"normal":{"src":"../video/normal.mp4","start":0,"end":59},"slow":{"src":"../video/lower_speed.mp4","start":0,"end":59},"superslow":{"src":"../video/super_low_speed.mp4","start":0,"end":59}}
+{
+  "question1":{"src":"../video/full_video/normal_revised.mp4","start":0,"end":1.45},
+  "question2":{"src":"../video/full_video/normal_revised.mp4","start":1.6,"end":6},
+  "question3":{"src":"../video/full_video/normal_revised.mp4","start":6,"end":17.2},
+  "question4":{"src":"../video/full_video/normal_revised.mp4","start":17.2,"end":25.3},
+  "question5":{"src":"../video/full_video/normal_revised.mp4","start":25.3,"end":39},
+  "question6":{"src":"../video/full_video/normal_revised.mp4","start":39,"end":50},
+  "question7":{"src":"../video/full_video/normal_revised.mp4","start":50,"end":999},
+  "correct1":{"src":"../video/correct_video/01_correct.mp4","start":0,"end":2},
+  "correct2":{"src":"../video/correct_video/02_correct.mp4","start":0,"end":2},
+  "correct3":{"src":"../video/correct_video/03_correct.mp4","start":0,"end":2},
+  "correct4":{"src":"../video/correct_video/04_correct.mp4","start":0,"end":2},
+  "correct5":{"src":"../video/correct_video/05_correct.mp4","start":0,"end":2},
+  "correct6":{"src":"../video/correct_video/06_correct.mp4","start":0,"end":2},
+  "wrong1":{"src":"../video/wrong_video/01_wrong.mp4","start":0,"end":6},
+  "wrong2":{"src":"../video/wrong_video/02_wrong.mp4","start":0,"end":8},
+  "wrong3":{"src":"../video/wrong_video/03_wrong.mp4","start":0,"end":8},
+  "wrong4":{"src":"../video/wrong_video/04_wrong.mp4","start":0,"end":6},
+  "wrong5":{"src":"../video/wrong_video/05_wrong.mp4","start":0,"end":6},
+  "wrong6":{"src":"../video/wrong_video/06_wrong.mp4","start":0,"end":8},
+  "normal":{"src":"../video/full_video/normal_revised.mp4","start":0,"end":999},
+  "slow":{"src":"../video/full_video/slow_revised.mp4","start":0,"end":999},
+  "superslow":{"src":"../video/full_video/super_slow_revised.mp4","start":0,"end":999}
+}

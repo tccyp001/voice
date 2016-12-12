@@ -43,7 +43,7 @@
 
 
 .content button {
-  width: 240px;
+  width: 180px;
 }
 
 .content #selections {
@@ -136,26 +136,6 @@
     padding: 0;
   }
 
-
-.form_question {
-  display: flex;
-  margin: 20px auto;
-}
-
-.form_question input[type=radio] {
-  margin-left: 5px;
-}
-
-.form_question input[type=radio]:hover {
-  cursor: pointer;
-}
-.form_movie >div {
-  margin: 20px;
-}
-textarea {
-  width: 400px;
-  height: 400px;
-}
 
 a:link {
   color:#000;
