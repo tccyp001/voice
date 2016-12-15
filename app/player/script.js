@@ -100,7 +100,8 @@ $(document).ready(function(){
         console.log(msg);
       }
       function playClip(clipName, callback) {
-        console.log(clipName);
+        //console.log(clipName);
+        //player.pause();
         var curClip = clips[clipName];
         if(curClip ==null) {
              socket.emit('chat message', "done_all:no_more" );
@@ -113,7 +114,7 @@ $(document).ready(function(){
             isLastClip = false;
         }
         player.pause();
-        if(player.currentSrc != curClip.src) {
+        if(getVideoFilename(player.currentSrc) != getVideoFilename(curClip.src)) {
           player.src = curClip.src;
           player.load();
         }
@@ -161,6 +162,14 @@ $(document).ready(function(){
       });
       function fullScreen(){
         player.webkitEnterFullscreen();
+      }
+      function test(){
+       // player.webkitEnterFullscreen();
+        player.pause();
+      // player.src="../video/wrong_video/01_wrong.mp4";
+        player.currentTime = 10;
+       // stopAt = curClip.end;
+        player.play();
       }
       function play(){
          player.play();
@@ -225,9 +234,15 @@ $(document).ready(function(){
           
         }
       }
+      function getVideoFilename(path) {
+         return path.split('\\').pop().split('/').pop();
+      }
       function bindClickEvents(){
         $('#fullscreen_btn').on('click', function(e){
             fullScreen();
+        });
+        $('#test_btn').on('click', function(e){
+            test();
         });
       }
     bindClickEvents();

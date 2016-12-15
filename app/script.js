@@ -63,6 +63,7 @@ $('document').ready(function(){
 	});
 
 });
+var isFullScreen = false;
 function fullScreen(){
 	if(!isFullScreen) {
    enterFullScreen();
@@ -73,7 +74,7 @@ function fullScreen(){
 		isFullScreen =false;
 	}
 }
-var isFullScreen = false;
+
 function enterFullScreen(){
 	  var docElm = document.documentElement;
 	

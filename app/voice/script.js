@@ -13,7 +13,7 @@ $(document).ready(function(){
     });
 
     showInfo('info_start');
-
+    var retry = 0;
     var final_transcript = '';
     var recognizing = false;
     var ignore_onend;
@@ -93,14 +93,22 @@ $(document).ready(function(){
 
     function checkResult(data){
         //var index = model['question' + model.status].indexOf(data);
-        if(data == model['answer_question' + model.status]){
-            sendMessage('play:correct' + model.status);
+        if(data == model['answer_question' + model.status] || retry ==2){
+            if(retry ===2) {
+              sendMessage('play:question' + (model.status + 1));
+
+            }
+            else {
+              sendMessage('play:correct' + model.status);
+            }
             model.status = model.status + 1;
             generatePerviousNextButton(model.status);
+            retry=0;
             // hightLightButton(index);
         }
         else {
             sendMessage('play:wrong' + model.status);
+            retry++;
       }
       $('#selections').empty();
     }
