@@ -11,7 +11,13 @@ $(document).ready(function(){
       model = data;
       model.status = 1;
     });
-
+    function init(){
+      correctCnt = 0;
+      errorCnt = 0;
+      recognizing = false;
+      model = {};
+      $('#test_result').html("Score");
+    }
 
     showInfo('info_start');
     function voiceEnd(data){
@@ -21,7 +27,7 @@ $(document).ready(function(){
       showInfo(data);
     }
     function startButton(event) {
-
+      init();
       if(ipad_voice){
         if (recognizing) {
           recognition.stop();
@@ -88,33 +94,34 @@ $(document).ready(function(){
 
     function checkResult(data){
         //var index = model['question' + model.status].indexOf(data);
-        model.status = model.status + 1;
+        
         if(data == model['answer_question' + model.status]){
            // sendMessage('play:question' + model.status);
        //     model.status = model.status + 1;
            // generatePerviousNextButton(model.status);
             // hightLightButton(index);
-            corretCnt += 1;
+            correctCnt += 1;
         }
         else {
             errorCnt +=1;
             //sendMessage('play:wrong' + model.status);
         }
+        model.status = model.status + 1;
       sendMessage('play:question' + model.status);
-      $('#selections').empty();
+  
     }
 
     function sendMessage(msg){
       var socket = io();
       socket.emit('chat message', msg);        
     }
-
+/*
     generatePerviousNextButton(1);
     function generatePerviousNextButton(index){
         $('[name="previous"]').text('上一题(' + (index-1) +')');
         $('[name="next"]').text('下一题(' + (index+1) +')');
     }
-
+*/
     function bindClickEvents(){
         $('#start_button').on('click', function(e){
             startButton(e);
@@ -131,9 +138,8 @@ $(document).ready(function(){
               model.status++;
               msg = 'play:question' + model.status;
             }
-            generatePerviousNextButton(model.status);
+           // generatePerviousNextButton(model.status);
             sendMessage(msg);
-            $('#selections').empty();
         })
 
         $('.input-groups').on('click', 'input', function(){
@@ -171,36 +177,29 @@ $(document).ready(function(){
             }
             if(msg.indexOf('result:')>=0) {
               voiceEnd(msg.split(":")[1]);
+              micOff();
             }
             if(msg.indexOf('voice_error:')>=0) {
               voiceError(msg.split(":")[1]);
+              micOff();
             }
 
             if(msg.indexOf('done_all')>=0){
               console.log("show score");
+              var score = 0;
+              if(correctCnt>0) {
+                score = correctCnt*1.0/(errorCnt + correctCnt) * 100;
+              }
+              var text_s = score.toFixed(0) + "%";
+               console.log(correctCnt);
+               console.log(errorCnt);
+              $('#test_result').html("Your score is: " + text_s);
+              micOff();
             }
 
         });
     }
 
-    function generateButtons(question){
-        $('#selections').empty();
-        var array = model[question];
-        var arrayDOM = array.map(function(item){
-            return $('<div><button type="button" class="btn btn-default btn-lg">'+ item + '</button></div>');
-        })
-        $('#selections').append(arrayDOM);
-    }
-
-    function generateButton(name, value){
-        $('#selections').empty();
-        var arrayDOM = $('<div><button type="button" class="btn btn-success btn-lg" value="' + value + '">'+ name + '</button></div>');
-        $('#continue_button').append(arrayDOM);
-    }
-
-    function hightLightButton(index){
-        $('#selections').find('button').eq(index).css('background', 'orange');
-    }
 
 });
 var isFullScreen = false;

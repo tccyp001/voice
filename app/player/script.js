@@ -85,6 +85,7 @@ $(document).ready(function(){
       //   "slow": { src:"../video/lower_speed.mp4", "start":0, "end":59},
       //   "superslow": { src:"../video/super_low_speed.mp4", "start":0, "end":59},
       // }
+      var isLastClip = false;
       var clips;
       $.get('/api/movie').then(function(data){
         clips = data;
@@ -105,6 +106,12 @@ $(document).ready(function(){
              socket.emit('chat message', "done_all:no_more" );
         }
         currentClip = clipName;
+        if(curClip.isLastClip === true) {
+            isLastClip = true;
+        }
+        else {
+            isLastClip = false;
+        }
         player.pause();
         if(player.currentSrc != curClip.src) {
           player.src = curClip.src;
@@ -205,7 +212,13 @@ $(document).ready(function(){
         if(stopAt>0 && player.currentTime>=stopAt || (player.currentTime + 0.01> player.duration)) {
           player.pause();
           stopAt = -1;
-          socket.emit('chat message', "done:" + currentClip);
+          if(isLastClip == true) {
+            socket.emit('chat message', "done_all:no_more");
+          }
+          else {
+           socket.emit('chat message', "done:" + currentClip); 
+          }
+          
           if(callback){
             callback();
           }
