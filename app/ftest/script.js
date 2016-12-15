@@ -15,7 +15,6 @@ $(document).ready(function(){
       correctCnt = 0;
       errorCnt = 0;
       recognizing = false;
-      model = {};
       $('#test_result').html("Score");
     }
 
@@ -129,6 +128,7 @@ $(document).ready(function(){
         $('.btn-groups').on('click', 'button', function(){
             var msg = $(this).attr('value');
             if(msg ==='play:question1') {
+              init();
               model.status = 1;
             }
             if (msg === 'previous') {
