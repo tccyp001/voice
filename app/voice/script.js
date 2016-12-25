@@ -115,6 +115,9 @@ $(document).ready(function(){
 
     function sendMessage(msg){
       var socket = io();
+      if(msg.indexOf('play:question') >=0) {
+        msg+= ':Please check the options and click the mic icon on the ipad to Speak.'
+      }
       socket.emit('chat message', msg);        
     }
 

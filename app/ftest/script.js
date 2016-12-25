@@ -112,6 +112,9 @@ $(document).ready(function(){
 
     function sendMessage(msg){
       var socket = io();
+      if(msg.indexOf('play:question') >=0) {
+        msg+= ':Please speak now.'
+      }
       socket.emit('chat message', msg);        
     }
 /*
@@ -139,7 +142,7 @@ $(document).ready(function(){
               msg = 'play:question' + model.status;
             }
            // generatePerviousNextButton(model.status);
-            sendMessage(msg);
+            sendMessage(msg + ':Please speak now.');
         })
 
         $('.input-groups').on('click', 'input', function(){

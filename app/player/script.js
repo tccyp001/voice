@@ -87,6 +87,7 @@ $(document).ready(function(){
       // }
       var isLastClip = false;
       var clips;
+      var stopMsg = '';
       $.get('/api/movie').then(function(data){
         clips = data;
       });
@@ -120,7 +121,7 @@ $(document).ready(function(){
         }
         player.currentTime = curClip.start;
         stopAt = curClip.end;
-        player.play();
+        play();
         player.ontimeupdate = function() {checkStop(callback)};
         
       }
@@ -136,7 +137,13 @@ $(document).ready(function(){
             playCorrect(clipName);
           }
           else {
-            playClip(clipName);   
+            playClip(clipName); 
+            if(msg.split(":").length>2) {
+              stopMsg = msg.split(":")[2];
+            } 
+            else {
+              stopMsg = '';
+            } 
           }
 
         }
@@ -173,14 +180,21 @@ $(document).ready(function(){
       }
       function play(){
          player.play();
+         $('#overlayid').addClass("hide");
       }
       function pause(){
          player.pause();
+         if(stopMsg!=''){
+           $('#overlayid').html(stopMsg);
+           $('#overlayid').removeClass("hide");;
+         }
+         
       }
       function replay(){
           player.pause();
           player.currentTime = '0';
           player.play();
+          $('#overlayid').addClass("hide");
       }
       function next(){
         player.pause();
@@ -219,7 +233,7 @@ $(document).ready(function(){
       }
       function checkStop(callback){
         if(stopAt>0 && player.currentTime>=stopAt || (player.currentTime + 0.01> player.duration)) {
-          player.pause();
+          pause();
           stopAt = -1;
           if(isLastClip == true) {
             socket.emit('chat message', "done_all:no_more");
