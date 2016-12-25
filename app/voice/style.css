@@ -150,10 +150,15 @@
   cursor: pointer;
 }
 .form_movie >div {
+  width: 80%;
   margin: 20px;
 }
+
+.tab-content {
+  width: 600px;
+}
 textarea {
-  width: 400px;
+  width: 550px;
   height: 400px;
 }
 
