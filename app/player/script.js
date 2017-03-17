@@ -213,6 +213,7 @@ $(document).ready(function(){
         player.load();
         stopAt = -1;
       }
+
       function playWrong(clipName){
         var qIndex = parseInt(clipName.replace('wrong', ''));
         var nextClip = 'question' + qIndex;
