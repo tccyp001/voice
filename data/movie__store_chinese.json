@@ -1,0 +1,113 @@
+{
+  "question1": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 8
+  },
+  "question2": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 8.04,
+    "end": 14.6
+  },
+  "question3": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 14.7,
+    "end": 31
+  },
+  "question4": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 31.5,
+    "end": 36.49
+  },
+  "question5": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 36.6,
+    "end": 43.545
+  },
+  "question6": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 43.6,
+    "end": 48.174
+  },
+  "question7": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 48.17,
+    "end": 51.5,
+    "isLastClip": true
+  },
+  "correct1": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "correct2": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "correct3": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "correct4": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "correct5": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "correct6": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 51.54,
+    "end": 55
+  },
+  "wrong1": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "wrong2": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "wrong3": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "wrong4": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "wrong5": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "wrong6": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 75,
+    "end": 81
+  },
+  "normal": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 51.5
+  },
+  "slow": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 51.5
+  },
+  "superslow": {
+    "src": "../video/full_video/store/store_normal_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 51.5
+  }
+}

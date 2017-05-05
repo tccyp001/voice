@@ -12,7 +12,7 @@
 
   <body>
 
-  <div class="body_wrapper">
+  <div class="body_wrapper"  ng-app="myApp" ng-controller="myCtrl">
     <div class="header">
        <div class="logo" ><a href="/"><img width = '150px' height = '100px' src="../images/logo.png"> <p class ='logo_text'>Main Menu</p></a></div>
       <div class="mic_icon">      
@@ -26,21 +26,47 @@
     </div>
 
     <div class="input-groups">
-      <span><input type="radio" name="speed" checked value="set_speed:normal">正常速度</span>
-      <span><input type="radio" name="speed" value="set_speed:slow">慢速</span>
-      <span><input type="radio" name="speed" value="set_speed:superslow">超慢速</span>
+      <span><input type="radio" name="speed" checked value="set_speed:normal">{{normalSpeed}}</span>
+      <span><input type="radio" name="speed" value="set_speed:slow">{{slowSpeed}}</span>
+      <span><input type="radio" name="speed" value="set_speed:superslow">{{superSlowSpeed}}</span>
     </div>
 
     <div class="btn-groups">
-      <button type="button" class="btn btn-primary btn-lg" value="play">播放</button>
-      <button type="button" class="btn btn-primary btn-lg" value="pause">暂停</button>
-      <button type="button" class="btn btn-primary btn-lg" value="replay">重放</button>
-      <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">全屏</button>   
+      <button type="button" class="btn btn-primary btn-lg" value="play">{{startText}}</button>
+      <button type="button" class="btn btn-primary btn-lg" value="pause">{{pause}}</button>
+      <button type="button" class="btn btn-primary btn-lg" value="replay">{{replay}}</button>
+      <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">{{fullScreen}}</button>   
     </div>
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
         <script src="../commio.js"></script>
     <script src="../jquery/dist/jquery.js"></script> 
-    <script src="script.js"></script>  
+    <script src="script.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope, $http) {
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
+            $scope.normalSpeed= "正常速度";
+            $scope.slowSpeed= "慢速";
+            $scope.superSlowSpeed= "超慢速";
+            $scope.startText= "播放";
+            $scope.fullScreen= "全屏";
+            $scope.replay="重放";
+            $scope.pause="暂停";
+          }
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
+            $scope.startText= "Play";
+            $scope.fullScreen= "Full Screen";
+            $scope.normalSpeed= "Normal";
+            $scope.slowSpeed= "Slow";
+            $scope.superSlowSpeed= "Super Slow";
+            $scope.startText= "Play";
+            $scope.fullScreen= "Full Screen";
+            $scope.replay="Replay";
+            $scope.pause="Pause";
+          }
+      });
+    </script> 
   </body>
 </html>

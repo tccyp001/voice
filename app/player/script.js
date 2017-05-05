@@ -83,34 +83,28 @@ $(document).ready(function(){
     }
     function startRecognition() {
       final_transcript = '';
-      recognition.lang = 'cmn-Hans-CN';
+      if(clips.lang == undefined) {
+        recognition.lang = 'cmn-Hans-CN';
+      }
+      else {
+        recognition.lang = clips.lang;
+      }
+      
       recognition.start();
       ignore_onend = false;
     }
 
      var stopAt = -1;
-      // var clips = {
-      //   "question1": { src:"../video/normal.mp4", "start":0, "end":4},
-      //   "question2": { src:"../video/normal.mp4", "start":4.7, "end":8.48},
-      //   "question3": { src:"../video/normal.mp4", "start":9, "end":59},
-      //   "correct1": { src:"../video/expression.mp4", "start":14, "end":16},   
-      //   "correct2": { src:"../video/expression.mp4", "start":0, "end":2},   
-      //   "wrong1": { src:"../video/expression.mp4", "start":18.7, "end":20.2},
-      //   "wrong2": { src:"../video/expression.mp4", "start":28, "end":30},
-      //   "normal": { src:"../video/normal.mp4", "start":0, "end":59},
-      //   "slow": { src:"../video/lower_speed.mp4", "start":0, "end":59},
-      //   "superslow": { src:"../video/super_low_speed.mp4", "start":0, "end":59},
-      // }
+
       var isLastClip = false;
       var clips;
       var stopMsg = '';
-      $.get('/api/movie').then(function(data){
-        clips = data;
-      });
-      var correctList = [{"start":10, "end":20}];
-      var wrongList = [{"start":10, "end":20}];
       var player = $('#myplayer').get(0);
-      var socket = io();      
+      $.get('/api/movie' + '__' + getSceneName()).then(function(data){
+        clips = data;
+        player.src = clips['question1'].src;    
+      });
+
       var currentClip = '';
       function actionLog(msg){
         $('#messages').append($('<li>').text(msg));

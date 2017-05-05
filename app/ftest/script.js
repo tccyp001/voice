@@ -7,7 +7,12 @@ $(document).ready(function(){
     var errorCnt = 0;
     var ipad_voice = false;
     var recognizing = false;
-    $.get('/api/question').then(function(data){
+    var socket = io();
+    var roomName = getChannelName();
+    if(roomName!='') {
+        socket.emit('join', roomName);
+    }
+    $.get('/api/question'+ '__' +  getSceneName()).then(function(data){
       model = data;
       model.status = 1;
     });
@@ -17,11 +22,8 @@ $(document).ready(function(){
       recognizing = false;
       $('#test_result').html("Score");
     }
-    var socket = io();
-    var roomName = getChannelName();
-    if(roomName!='') {
-        socket.emit('join', roomName);
-    }
+ 
+   
     showInfo('info_start');
     function voiceEnd(data){
       checkResult(data);

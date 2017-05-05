@@ -12,7 +12,7 @@
 
   <body>
 
-  <div class="body_wrapper">
+  <div class="body_wrapper" ng-app="myApp" ng-controller="myCtrl">
     <div class="header">
        <div class="logo" ><a href="/"><img width = '150px' height = '100px' src="../images/logo.png"> <p class ='logo_text'>Main Menu</p></a></div>
       <div class="mic_icon">      
@@ -49,16 +49,30 @@
     </div>
 
     <div class="btn-groups">
-      <button type="button" class="btn btn-primary btn-lg" value="play:question1">开始视频</button>
+      <button type="button" class="btn btn-primary btn-lg" value="play:question1">{{startText}}</button>
       <button type="button" class="btn btn-primary btn-lg" name="previous" value="previous"></button>
       <button type="button" class="btn btn-primary btn-lg" name="next" value="next"></button>
-      <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">全屏</button>
+      <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">{{fullScreen}}</button>
     </div>
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
     <script src="../commio.js"></script>
     <script src="../jquery/dist/jquery.js"></script>  
     <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope, $http) {
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
+            $scope.startText= "开始视频";
+            $scope.fullScreen= "全屏";
+          }
+          else if(sessionStorage.getItem('lang_name') == 'english') {
+            $scope.startText= "Play";
+            $scope.fullScreen= "Full Screen";
+          }
+      });
+    </script>
   </body>
 </html>
 

@@ -23,15 +23,39 @@
 
     <div class="content">
       <div class="thumbnail" ><img src="../images/images.jpg"></div>
-  
-      <div id="scene_selections_div" >
+      <div id="lang_selections_div">
+       <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle btn btn-primary btn-lg" type="button" data-toggle="dropdown">Choose Language
+         </button>
+         <ul class="dropdown-menu" id='lang_selector'>
+            <li data-value="english"><a href="#">English</a></li>
+            <li data-value="chinese"><a href="#">Chinese</a></li>
+          </ul>
+          </div>
+      </div>
+      <div id="scene_selections_english_div" hidden="true" class="scene_selections_div">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle btn btn-primary btn-lg" type="button" data-toggle="dropdown">Choose Scene
+         </button>
+          <ul class="dropdown-menu"  class="scene_selector_ul" id ='scene_selector_ul_english'>
+            <li data-value="store_english"><a href="#">Store</a></li>
+            <li data-value="store_english_bengci"><a href="#">Store(bengci)</a></li>
+            <li data-value="restaurant_english"><a href="#">Restaurant</a></li>
+            <li data-value="restaurant_english_bengci"><a href="#">Restaurant(bengci）</a></li>
+          </ul>
+        </div>
+        <div class="classroom_div">
+         <label>Class room Number:</label><input id='classroom_number' type="number"  value="1"></input></div>
+         </div>
+      <div id="scene_selections_chinese_div" hidden="true" class="scene_selections_div">
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle btn btn-primary btn-lg" type="button" data-toggle="dropdown">场景选择
          </button>
-          <ul class="dropdown-menu" id='scene_selector'>
-            <li data-value="shopping_mall"><a href="#">商店</a></li>
-            <li data-value="shopping_mall_bengci"><a href="#">商店（蹦词版）</a></li>
-            <li data-value="restaurant"><a href="#">餐馆</a></li>
+          <ul class="dropdown-menu" class="scene_selector_ul" id ='scene_selector_ul_chinese'>
+            <li data-value="store_chinese"><a href="#">商店</a></li>
+            <li data-value="store_chinese_bengci"><a href="#">商店（蹦词版）</a></li>
+            <li data-value="restaurant_chinese"><a href="#">餐馆</a></li>
+            <li data-value="restaurant_chinese_bengci"><a href="#">餐馆 （蹦词版）</a></li>
           </ul>
         </div>
         <div class="classroom_div">
@@ -70,13 +94,13 @@
             <div class="tab-content">
 
               <div role="tabpanel" class="tab-pane active" id="home">
-                <form action="/api/movie" method="post" class="form_movie">
+                <form class="form_movie">
                 </form>
                 <div><input type="submit" id="submit_movie"></div>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="profile">
-                <form action="/api/question" method="post" class="form_question">
+                <form  class="form_question">
                   
                 </form>
 
@@ -97,7 +121,6 @@
     <script src="../commio.js"></script>
     <script src="../jquery/dist/jquery.js"></script>
     <script src='../bootstrap/dist/js/bootstrap.min.js'></script>
-    <script src='../jquery-serialize-object/dist/jquery.serialize-object.min.js'></script>
     <script src='script.js'></script>
   </body>
 </html>

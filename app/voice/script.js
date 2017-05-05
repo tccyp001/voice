@@ -6,16 +6,16 @@ $(document).ready(function(){
     var ipad_voice = false;
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('autoplay', 'autoplay');
-
-    $.get('/api/question').then(function(data){
-      model = data;
-      model.status = 1;
-    });
     var socket = io();
     var roomName = getChannelName();
     if(roomName!='') {
         socket.emit('join', roomName);
     }
+    $.get('/api/question' + '__' + getSceneName()).then(function(data){
+      model = data;
+      model.status = 1;
+    });
+
     showInfo('info_start');
     var retry = 0;
     var final_transcript = '';
@@ -126,8 +126,14 @@ $(document).ready(function(){
 
     generatePerviousNextButton(1);
     function generatePerviousNextButton(index){
-        $('[name="previous"]').text('上一题(' + (index-1) +')');
-        $('[name="next"]').text('下一题(' + (index+1) +')');
+      var preQuestionText = "Previous";
+      var nextQuestionText = "Next";
+      if(sessionStorage.getItem('lang_name') == 'chinese') {
+            preQuestionText= "上一题";
+            nextQuestionText= "下一题";
+      }
+        $('[name="previous"]').text(preQuestionText+'(' + (index-1) +')');
+        $('[name="next"]').text(nextQuestionText+'(' + (index+1) +')');
     }
 
     function bindClickEvents(){

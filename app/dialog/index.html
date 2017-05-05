@@ -12,7 +12,7 @@
 
   <body>
 
-  <div class="body_wrapper">
+  <div class="body_wrapper" ng-app="myApp" ng-controller="myCtrl">
     <div class="header">
        <div class="logo" ><a href="/"><img width = '150px' height = '100px' src="../images/logo.png"> <p class ='logo_text'>Main Menu</p></a></div>
          <div class="mic_icon">      
@@ -60,6 +60,20 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="../commio.js"></script>
     <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+    <script type="text/javascript">
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope, $http) {
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
+            $scope.startText= "开始视频";
+            $scope.fullScreen= "全屏";
+          }
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
+            $scope.startText= "Play";
+            $scope.fullScreen= "Full Screen";
+          }
+      });
+    </script>
   </body>
 </html>
 
