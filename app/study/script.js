@@ -3,11 +3,15 @@
 
 $(document).ready(function(){
     bindClickEvents();
-
+    var socket = io();
+    var roomName = getChannelName();
+    if(roomName!='') {
+        socket.emit('join', roomName);
+    }
 
     function sendMessage(msg){
-      var socket = io();
-      socket.emit('chat message', msg);        
+        console.log(msg);
+      socket.emit('chat', msgWrapper(msg));        
     }
 
     function bindClickEvents(){

@@ -9,9 +9,20 @@ $(document).ready(function(){
       var final_transcript = '';
       var recognizing = false;
       var ignore_onend;
+     if (sessionStorage.getItem('scene_name') == null) {
+      sessionStorage.setItem('isPlayerMode', 'true');
+      location.href = '/';
+      return;
+     }
+
       if (!('webkitSpeechRecognition' in window)) {
         upgrade();
       } else {
+      var socket = io();
+      var roomName = getChannelName();
+      if(roomName!='') {
+          socket.emit('join', roomName);
+      }
     //  start_button.style.display = 'inline-block';
       var recognition = new webkitSpeechRecognition();
       recognition.continuous = false;
@@ -23,17 +34,21 @@ $(document).ready(function(){
       recognition.onerror = function(event) {
         if (event.error == 'no-speech') {
           ignore_onend = true;
-          socket.emit('chat message', "voice_error:" + 'info_no_speech')
+          var msg = "voice_error:" + 'info_no_speech';
+          socket.emit('chat', msgWrapper(msg));
         }
         if (event.error == 'audio-capture') {
-          socket.emit('chat message', "voice_error:" + 'info_no_microphone')
+          var msg = "voice_error:" + 'info_no_microphone';
+          socket.emit('chat', msgWrapper(msg));
           ignore_onend = true;
         }
         if (event.error == 'not-allowed') {
           if (event.timeStamp - start_timestamp < 100) {
-            socket.emit('chat message', "voice_error:" + 'info_blocked')
+            var msg = "voice_error:" + 'info_blocked';
+            socket.emit('chat', msgWrapper(msg));
           } else {
-            socket.emit('chat message', "voice_error:" + 'info_blocked')
+            var msg = "voice_error:" + 'info_blocked';
+            socket.emit('chat', msgWrapper(msg));
           }
           ignore_onend = true;
         }
@@ -46,7 +61,8 @@ $(document).ready(function(){
         if (!final_transcript) {
           return;
         }
-        socket.emit('chat message', "result:" + final_transcript)
+        var msg = "result:" + final_transcript;
+        socket.emit('chat', msgWrapper(msg));
 
       };
       recognition.onresult = function(event) {
@@ -105,7 +121,8 @@ $(document).ready(function(){
         //player.pause();
         var curClip = clips[clipName];
         if(curClip ==null) {
-             socket.emit('chat message', "done_all:no_more" );
+             var msg = "done_all:no_more";
+             socket.emit('chat', msgWrapper(msg));
         }
         currentClip = clipName;
         if(curClip.isLastClip === true) {
@@ -126,7 +143,7 @@ $(document).ready(function(){
         
       }
   
-      socket.on('chat message', function(msg){
+      socket.on('chat', function(msg){
         actionLog(msg);
         if(msg.indexOf('play:') >=0) {
           var clipName = msg.split(":")[1];
@@ -237,10 +254,12 @@ $(document).ready(function(){
           pause();
           stopAt = -1;
           if(isLastClip == true) {
-            socket.emit('chat message', "done_all:no_more");
+            var msg = "done_all:no_more";
+            socket.emit('chat', msgWrapper(msg));
           }
           else {
-           socket.emit('chat message', "done:" + currentClip); 
+            var msg = "done:" + currentClip;
+            socket.emit('chat', msgWrapper(msg)); 
           }
           
           if(callback){

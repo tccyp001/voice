@@ -21,8 +21,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+  socket.on('chat', function(data){
+    io.sockets.in(data.room).emit('chat', data.msg);
+  });
+  socket.on('join', function(room) {
+    socket.join(room);
   });
 });
 

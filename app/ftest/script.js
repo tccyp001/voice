@@ -17,7 +17,11 @@ $(document).ready(function(){
       recognizing = false;
       $('#test_result').html("Score");
     }
-
+    var socket = io();
+    var roomName = getChannelName();
+    if(roomName!='') {
+        socket.emit('join', roomName);
+    }
     showInfo('info_start');
     function voiceEnd(data){
       checkResult(data);
@@ -111,11 +115,10 @@ $(document).ready(function(){
     }
 
     function sendMessage(msg){
-      var socket = io();
       if(msg.indexOf('play:question') >=0) {
         msg+= ':Please speak now.'
       }
-      socket.emit('chat message', msg);        
+      socket.emit('chat', msgWrapper(msg));        
     }
 /*
     generatePerviousNextButton(1);

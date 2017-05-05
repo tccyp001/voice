@@ -8,7 +8,11 @@ $(document).ready(function(){
       model = data;
       model.status = 1;
     });
-
+    var socket = io();
+    var roomName = getChannelName();
+    if(roomName!='') {
+        socket.emit('join', roomName);
+    }
     var ipad_voice = false;
     var recognizing = false;
     showInfo('info_start');
@@ -110,11 +114,11 @@ $(document).ready(function(){
     }
 
     function sendMessage(msg){
-      var socket = io();
+      
       if(msg.indexOf('play:question') >=0) {
         msg+= ':Please speak now.'
       }
-      socket.emit('chat message', msg);        
+      socket.emit('chat', msgWrapper(msg));        
     }
 
     generatePerviousNextButton(1);
@@ -165,8 +169,8 @@ $(document).ready(function(){
         $('#start_button').find('i').addClass('mic_red'); 
     }
     function handleEvents(){
-        var socket = io();
-        socket.on('chat message', function(msg){
+
+        socket.on('chat', function(msg){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) { 
                 micOnSendMsg();

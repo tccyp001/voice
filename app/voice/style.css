@@ -172,3 +172,12 @@ a:visited {
 a:hover {
   color:#33F;
 }
+#hysk_module_div div{
+  margin: 10px
+}
+.classroom_div {
+  margin-top:10px;
+}
+#scene_selections_div {
+  margin:10px;
+}

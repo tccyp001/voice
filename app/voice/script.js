@@ -11,7 +11,11 @@ $(document).ready(function(){
       model = data;
       model.status = 1;
     });
-
+    var socket = io();
+    var roomName = getChannelName();
+    if(roomName!='') {
+        socket.emit('join', roomName);
+    }
     showInfo('info_start');
     var retry = 0;
     var final_transcript = '';
@@ -114,11 +118,10 @@ $(document).ready(function(){
     }
 
     function sendMessage(msg){
-      var socket = io();
       if(msg.indexOf('play:question') >=0) {
         msg+= ':Please check the options and click the mic icon on the ipad to Speak.'
       }
-      socket.emit('chat message', msg);        
+      socket.emit('chat', msgWrapper(msg));        
     }
 
     generatePerviousNextButton(1);
@@ -169,8 +172,7 @@ $(document).ready(function(){
     }
 
     function handleEvents(){
-        var socket = io();
-        socket.on('chat message', function(msg){
+        socket.on('chat', function(msg){
             console.log(msg);   
             if(msg == ('done:question' + model.status)) {
                 generateButtons('question' + model.status, model.status);

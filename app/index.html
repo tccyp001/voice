@@ -23,16 +23,31 @@
 
     <div class="content">
       <div class="thumbnail" ><img src="../images/images.jpg"></div>
-      <div id="selections">
-        
+  
+      <div id="scene_selections_div" >
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle btn btn-primary btn-lg" type="button" data-toggle="dropdown">场景选择
+         </button>
+          <ul class="dropdown-menu" id='scene_selector'>
+            <li data-value="shopping_mall"><a href="#">商店</a></li>
+            <li data-value="shopping_mall_bengci"><a href="#">商店（蹦词版）</a></li>
+            <li data-value="restaurant"><a href="#">餐馆</a></li>
+          </ul>
+        </div>
+        <div class="classroom_div">
+         <label>教室编号:</label><input id='classroom_number' type="number"  value="1"></input></div>
+         </div>
+        <div id="hysk_module_div" hidden="true">
         <div><a href="/study"><button type="button" class="btn btn-primary btn-lg" value="play">学一学 (Learn to Speak)</button></a></div>
         <div><a href="/voice"><button type="button" class="btn btn-primary btn-lg" value="pause">练一练 (Practice to Speak)</button></a></div>
         <div><a href="/dialog"><button type="button" class="btn btn-primary btn-lg" value="replay">试一试 (Try to Speak)</button></a></div>
         <div><a href="/ftest"><button type="button" class="btn btn-primary btn-lg" value="replay">考一考 (Test your studying)</button></a></div>
         <div><a href="/player" target="_blank"><button type="button" class="btn btn-danger btn-lg hide">打开播放页面</button></a></div>
         <!-- Button trigger modal -->
+        <div><button id = 'change_scene_btn' type="button" class="btn btn-primary btn-lg" data-toggle="modal" >切换场景</button></div>
         <div><button type="button" class="btn btn-danger btn-lg hide" data-toggle="modal" data-target="#myModal">配置</button></div>
         <div> <button onclick="fullScreen()" id = 'fullscreen_btn' class="btn btn-primary btn-lg">全屏</button></div>
+        </div>
       </div>
     </div>
 
@@ -78,7 +93,8 @@
 
 
   </div>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="../commio.js"></script>
     <script src="../jquery/dist/jquery.js"></script>
     <script src='../bootstrap/dist/js/bootstrap.min.js'></script>
     <script src='../jquery-serialize-object/dist/jquery.serialize-object.min.js'></script>

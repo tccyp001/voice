@@ -45,9 +45,6 @@ $('document').ready(function(){
 		});		
 
 	});
-
-
-
 	$('#submit_movie').on('click', function(){
 		var obj = $('[name="movie"]').val();
 		$.ajax({
@@ -61,6 +58,35 @@ $('document').ready(function(){
 		});		
 
 	});
+
+$('#scene_selector').on('click','li', function(){
+	 var scene_name = $(this).data('value');
+	 var classroom_number = $('#classroom_number').val();
+	 if (classroom_number == ''){
+	 	alert("please put a classroom number");
+	 }
+	 sessionStorage.setItem('scene_name', scene_name);
+	 sessionStorage.setItem('classroom_number', classroom_number);
+	 if (sessionStorage.getItem('isPlayerMode') != null) {
+	 	location.href = '/player';
+	 }
+	 	 if (sessionStorage.getItem('isDebugMode') != null) {
+	 	location.href = '/debug';
+	 }
+	 else {
+		$('#scene_selections_div').hide();
+		$('#hysk_module_div').show();
+	 }
+
+});
+
+
+$('#change_scene_btn').on('click', function(){
+	 $('#scene_selections_div').show();
+	 $('#hysk_module_div').hide();
+});
+
+
 
 });
 var isFullScreen = false;
