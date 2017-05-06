@@ -1,116 +1,117 @@
 {
+  "lang":"en-US",
   "question1": [
     {
-      "text": "选项一",
-      "src": "../mp3/a1.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a1.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a2.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a2.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a3.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a3.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a4.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a4.mp3"
     }
   ],
-  "answer_question1": "这个丝巾多少钱",
+  "answer_question1": "Yes I need sunglasses",
   "question2": [
     {
-      "text": "选项一",
-      "src": "../mp3/a5.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a5.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a6.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a6.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a2.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a2.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a1.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a1.mp3"
     }
   ],
-  "answer_question2": "来条红的吧",
+  "answer_question2": "you are also very pretty",
   "question3": [
     {
-      "text": "选项一",
-      "src": "../mp3/a3.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a3.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a4.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a4.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a5.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a5.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a6.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a6.mp3"
     }
   ],
-  "answer_question3": "前面那个摊卖50块",
+  "answer_question3": "May I try them on",
   "question4": [
     {
-      "text": "选项一",
-      "src": "../mp3/a2.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a2.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a1.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a1.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a3.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a3.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a4.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a4.mp3"
     }
   ],
-  "answer_question4": "算了我回去买",
+  "answer_question4": "how much for this one",
   "question5": [
     {
-      "text": "选项一",
-      "src": "../mp3/a5.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a5.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a6.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a6.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a2.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a2.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a1.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a1.mp3"
     }
   ],
-  "answer_question5": "给你也打八折",
+  "answer_question5": "it is so expensive 100 dollars ok",
   "question6": [
     {
-      "text": "选项一",
-      "src": "../mp3/a3.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a3.mp3"
     },
     {
-      "text": "选项二",
-      "src": "../mp3/a4.mp3"
+      "text": "option1",
+      "src": "../mp3/english/normal/a4.mp3"
     },
     {
-      "text": "选项三",
-      "src": "../mp3/a5.mp3"
+      "text": "option3",
+      "src": "../mp3/english/normal/a5.mp3"
     },
     {
-      "text": "选项四",
-      "src": "../mp3/a6.mp3"
+      "text": "option4",
+      "src": "../mp3/english/normal/a6.mp3"
     }
   ],
-  "answer_question6": "你是粉丝吗"
+  "answer_question6": "150 dollars is all I can offer"
 }

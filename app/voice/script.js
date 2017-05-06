@@ -97,7 +97,7 @@ $(document).ready(function(){
 
     function checkResult(data){
         //var index = model['question' + model.status].indexOf(data);
-        if(data == model['answer_question' + model.status] || retry ==2){
+        if(validateAnswer(data, model) || retry ==2){
             if(retry ===2) {
               sendMessage('play:question' + (model.status + 1));
 

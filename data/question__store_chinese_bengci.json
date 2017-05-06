@@ -2,115 +2,115 @@
   "question1": [
     {
       "text": "选项一",
-      "src": "../mp3/a1.mp3"
+      "src": "../mp3/store/chinese/bengci/ba1.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a2.mp3"
+      "src": "../mp3/store/chinese/bengci/ba2.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a3.mp3"
+      "src": "../mp3/store/chinese/bengci/ba3.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a4.mp3"
+      "src": "../mp3/store/chinese/bengci/ba4.mp3"
     }
   ],
-  "answer_question1": "这个丝巾多少钱",
+  "answer_question1": "多少钱",
   "question2": [
     {
       "text": "选项一",
-      "src": "../mp3/a5.mp3"
+      "src": "../mp3/store/chinese/bengci/ba5.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a6.mp3"
+      "src": "../mp3/store/chinese/bengci/ba6.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a2.mp3"
+      "src": "../mp3/store/chinese/bengci/ba2.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a1.mp3"
+      "src": "../mp3/store/chinese/bengci/ba1.mp3"
     }
   ],
-  "answer_question2": "来条红的吧",
+  "answer_question2": "红的吧",
   "question3": [
     {
       "text": "选项一",
-      "src": "../mp3/a3.mp3"
+      "src": "../mp3/store/chinese/bengci/ba3.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a4.mp3"
+      "src": "../mp3/store/chinese/bengci/ba4.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a5.mp3"
+      "src": "../mp3/store/chinese/bengci/ba5.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a6.mp3"
+      "src": "../mp3/store/chinese/bengci/ba6.mp3"
     }
   ],
-  "answer_question3": "前面那个摊卖50块",
+  "answer_question3": "50块",
   "question4": [
     {
       "text": "选项一",
-      "src": "../mp3/a2.mp3"
+      "src": "../mp3/store/chinese/bengci/ba2.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a1.mp3"
+      "src": "../mp3/store/chinese/bengci/ba1.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a3.mp3"
+      "src": "../mp3/store/chinese/bengci/ba3.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a4.mp3"
+      "src": "../mp3/store/chinese/bengci/ba4.mp3"
     }
   ],
-  "answer_question4": "算了我回去买",
+  "answer_question4": "算了",
   "question5": [
     {
       "text": "选项一",
-      "src": "../mp3/a5.mp3"
+      "src": "../mp3/store/chinese/bengci/ba5.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a6.mp3"
+      "src": "../mp3/store/chinese/bengci/ba6.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a2.mp3"
+      "src": "../mp3/store/chinese/bengci/ba2.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a1.mp3"
+      "src": "../mp3/store/chinese/bengci/ba1.mp3"
     }
   ],
-  "answer_question5": "给你也打八折",
+  "answer_question5": "打八折",
   "question6": [
     {
       "text": "选项一",
-      "src": "../mp3/a3.mp3"
+      "src": "../mp3/store/chinese/bengci/ba3.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/a4.mp3"
+      "src": "../mp3/store/chinese/bengci/ba4.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/a5.mp3"
+      "src": "../mp3/store/chinese/bengci/ba5.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/a6.mp3"
+      "src": "../mp3/store/chinese/bengci/ba6.mp3"
     }
   ],
-  "answer_question6": "你是粉丝吗"
+  "answer_question6": "粉丝"
 }

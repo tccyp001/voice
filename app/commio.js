@@ -23,3 +23,19 @@ function getSceneName(){
 function msgWrapper(msg){
   return { 'room': getChannelName(), 'msg': msg }
 }
+function validateAnswer(model, data){
+  if(model["lang"] =="en-US") {
+    if(removeSignAndToLower(data) == removeSignAndToLower(model['answer_question' + model.status])){
+      return true;
+    }
+    return false;
+  }
+  else {
+    return data == model['answer_question' + model.status];
+  }
+}
+function removeSignAndToLower(str){
+  str = str.replace(/[^a-zA-Z0-9]/g, '');
+  str = str.toLowerCase();
+  return str;
+}

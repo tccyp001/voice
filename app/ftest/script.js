@@ -100,7 +100,7 @@ $(document).ready(function(){
     function checkResult(data){
         //var index = model['question' + model.status].indexOf(data);
         
-        if(data == model['answer_question' + model.status]){
+        if(validateAnswer(data, model)){
            // sendMessage('play:question' + model.status);
        //     model.status = model.status + 1;
            // generatePerviousNextButton(model.status);
