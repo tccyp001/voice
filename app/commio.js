@@ -6,7 +6,7 @@ function getChannelName(){
       if(location.pathname !='/') {
         location.href = '/';
       }
-      return;
+      return null;
    }
    return scene_name + '-' + classroom_number;
 }
@@ -16,14 +16,14 @@ function getSceneName(){
       if(location.pathname !='/') {
         location.href = '/';
       }
-      return;
+      return null;
    }
    return scene_name;
 }
 function msgWrapper(msg){
   return { 'room': getChannelName(), 'msg': msg }
 }
-function validateAnswer(model, data){
+function validateAnswer(data, model){
   if(model["lang"] =="en-US") {
     if(removeSignAndToLower(data) == removeSignAndToLower(model['answer_question' + model.status])){
       return true;

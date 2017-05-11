@@ -174,7 +174,10 @@ $(document).ready(function(){
         var socket = io();
         socket.on('chat message', function(msg){
             console.log(msg);   
-
+            if(msg == 'done_all:no_more') { 
+                location.href = '/';
+                return;
+            } 
             if(msg == ('done:question' + model.status)) {
                 // generateButtons('question' + model.status);
               micOnSendMsg();

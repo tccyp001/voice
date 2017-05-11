@@ -3,7 +3,14 @@
 
 $('document').ready(function(){
 	var roomName = getChannelName();
-	var sceneName =  getSceneName()
+	var sceneName =  getSceneName();
+
+	if(roomName != null && sceneName != null) {
+	 $('#lang_selections_div').hide();
+	 $('#scene_selections_english_div').hide();
+	 $('#scene_selections_chinese_div').hide();
+	 $('#hysk_module_div').show();
+	}
 	$.get('/api/question' + '__' + sceneName).then(function(data){
       var questionModel = data;
       generateInput(questionModel, 'question');

@@ -180,6 +180,10 @@ $(document).ready(function(){
     function handleEvents(){
         socket.on('chat', function(msg){
             console.log(msg);   
+            if(msg == 'done_all:no_more') { 
+                location.href = '/';
+                return;
+            } 
             if(msg == ('done:question' + model.status)) {
                 generateButtons('question' + model.status, model.status);
             }
