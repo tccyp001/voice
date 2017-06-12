@@ -1,112 +1,113 @@
 {  
+   "lang":"en-US",
    "question1":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
       "start":0,
-      "end":7.6
+      "end":5.666
    },
    "question2":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":7.6,
-      "end":14.5
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":5.666,
+      "end":11.0
    },
    "question3":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":14.5,
-      "end":17.2
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":11.2,
+      "end":17.723
    },
    "question4":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":17.2,
-      "end":20.02
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":17.923,
+      "end":23.525
    },
    "question5":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":20.02,
-      "end":25.49
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":23.725,
+      "end":30.161
    },
    "question6":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":25.6,
-      "end":30.88
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":30.361,
+      "end":35.840
    },
    "question7":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":50,
-      "end":55.2,
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":36.040,
+      "end":48.0,
       "isLastClip":true
    },
    "correct1":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "correct2":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "correct3":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "correct4":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "correct5":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "correct6":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":57,
-      "end":60
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":49.5,
+      "end":53.2
    },
    "wrong1":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":138,
-      "end":145
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "wrong2":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":150,
-      "end":158
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "wrong3":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":163,
-      "end":173
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "wrong4":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":178,
-      "end":187
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "wrong5":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":191,
-      "end":200
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "wrong6":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
-      "start":203,
-      "end":213
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
+      "start":54,
+      "end":60
    },
    "normal":{  
-      "src":"../video/full_video/wenlu/wenlu_english_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/english_wenlu_right_wrong.mp4",
       "start":0,
-      "end":999
+      "end":48
    },
    "slow":{  
-      "src":"../video/full_video/wenlu/wenlu_english_slow.mp4",
+      "src":"../video/full_video/wenlu/english_wenlu_slow.mp4",
       "start":0,
       "end":999
    },
    "superslow":{  
-      "src":"../video/full_video/wenlu/wenlu_english_superslow.mp4",
+      "src":"../video/full_video/wenlu/english_wenlu_superslow.mp4",
       "start":0,
       "end":999
    }

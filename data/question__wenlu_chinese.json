@@ -1,0 +1,116 @@
+{
+  "question1": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a1.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a2.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a3.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a4.mp3"
+    }
+  ],
+  "answer_question1": "你好可以帮我照个相吗",
+  "question2": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a5.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a6.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a2.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a1.mp3"
+    }
+  ],
+  "answer_question2": "谢谢我叫李梅你呢",
+  "question3": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a3.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a4.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a5.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a6.mp3"
+    }
+  ],
+  "answer_question3": "你是哪国人",
+  "question4": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a2.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a1.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a3.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a4.mp3"
+    }
+  ],
+  "answer_question4": "很高兴认识你",
+  "question5": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a5.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a6.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a2.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a1.mp3"
+    }
+  ],
+  "answer_question5": "你来中国做什么",
+  "question6": [
+    {
+      "text": "选项一",
+      "src": "../mp3/store/chinese/normal/a3.mp3"
+    },
+    {
+      "text": "选项二",
+      "src": "../mp3/store/chinese/normal/a4.mp3"
+    },
+    {
+      "text": "选项三",
+      "src": "../mp3/store/chinese/normal/a5.mp3"
+    },
+    {
+      "text": "选项四",
+      "src": "../mp3/store/chinese/normal/a6.mp3"
+    }
+  ],
+  "answer_question6": "你的汉语说得很好"
+}

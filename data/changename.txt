@@ -1,0 +1,16 @@
+mv 中文版问路慢语速.mp4 wenlu_chinese_slow.mp4; 
+mv 中文版问路正常语速.mp4 chinese_wenlu_normal.mp4;
+mv 中文版问路正常语速对与错.mp4 chinese_wenlu_right_wrong.mp4;
+mv 中文版问路超慢语速.mp4 chinese_wenlu_superslow.mp4;
+mv 中文版问路蹦词慢语速.mp4 chinese_wenlu_bengci_slow.mp4;
+mv 中文版问路蹦词正常语速.mp4 chinese_wenlu_bengci_normal.mp4;
+mv 中文版问路蹦词正常语速对与错.mp4 chinese_wenlu_bengci_right_wrong.mp4;
+mv 中文版问路蹦词超慢语速.mp4 chinese_wenlu_bengci_superslow.mp4;
+mv 英文版问路慢语速.mp4 english_wenlu_slow.mp4;
+mv 英文版问路正常语速.mp4 english_wenlu_normal.mp4;
+mv 英文版问路正常语速对与错.mp4 english_wenlu_right_wrong.mp4;
+mv 英文版问路超慢语速.mp4  english_wenlu_superslow.mp4;
+mv 英文版问路蹦词慢语速.mp4  english_wenlu_bengci_low.mp4;
+mv 英文版问路蹦词正常语速.mp4 english_wenlu_bengci_normal.mp4;
+mv 英文版问路蹦词正常语速对与错.mp4 english_wenlu_bengci_right_wrong.mp4;
+mv 英文版问路蹦词超慢语速.mp4 english_wenlu_bengci_superslow.mp4;

@@ -1,112 +1,112 @@
 {  
    "question1":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":0,
       "end":4.5
    },
    "question2":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":4.5,
       "end":10.6
    },
    "question3":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":10.6,
       "end":14.2
    },
    "question4":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":14.2,
       "end":18.9
    },
    "question5":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":18.9,
       "end":22.9
    },
    "question6":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":22.9,
       "end":27.2
    },
    "question7":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":27.2,
       "end":30.36,
       "isLastClip":true
    },
    "correct1":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "correct2":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "correct3":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "correct4":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "correct5":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "correct6":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":31,
       "end":35
    },
    "wrong1":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "wrong2":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "wrong3":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "wrong4":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "wrong5":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "wrong6":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":36,
       "end":41
    },
    "normal":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_right_wrong.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_right_wrong.mp4",
       "start":0,
       "end":30.36
    },
    "slow":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengcislow.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_slow.mp4",
       "start":0,
       "end":999
    },
    "superslow":{  
-      "src":"../video/full_video/wenlu/wenlu_chinese_bengci_superslow.mp4",
+      "src":"../video/full_video/wenlu/chinese_wenlu_bengci_superslow.mp4",
       "start":0,
       "end":999
    }
