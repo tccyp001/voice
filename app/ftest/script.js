@@ -171,12 +171,12 @@ $(document).ready(function(){
         $('#start_button').find('i').addClass('mic_red'); 
     }
     function handleEvents(){
-        var socket = io();
-        socket.on('chat message', function(msg){
+        socket.on('chat', function(msg){
             console.log(msg);   
             if(msg == 'done_all:no_more') { 
-                location.href = '/';
-                return;
+              
+                //location.href = '/';
+             //   return;
             } 
             if(msg == ('done:question' + model.status)) {
                 // generateButtons('question' + model.status);
