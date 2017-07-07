@@ -134,6 +134,8 @@ $(document).ready(function(){
       }
         $('[name="previous"]').text(preQuestionText+'(' + (index-1) +')');
         $('[name="next"]').text(nextQuestionText+'(' + (index+1) +')');
+      //bindClickEvents();
+
     }
 
     function bindClickEvents(){
@@ -187,10 +189,10 @@ $(document).ready(function(){
             if(msg == ('done:question' + model.status)) {
                 generateButtons('question' + model.status, model.status);
             }
-            //if(msg == ('done:wrong' + model.status)) {
-                // generateButtons('question' + model.status);
+            if(msg == ('done:wrong' + model.status)) {
+                 generateButtons('question' + model.status, model.status);
           //      sendMessage('voice:start');
-          //  }
+            }
             if(msg.indexOf('result:')>=0) {
               voiceEnd(msg.split(":")[1]);
             }
