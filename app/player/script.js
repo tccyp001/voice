@@ -9,6 +9,7 @@ $(document).ready(function(){
       var final_transcript = '';
       var recognizing = false;
       var ignore_onend;
+      var player_real_src ='';
      if (sessionStorage.getItem('scene_name') == null) {
       sessionStorage.setItem('isPlayerMode', 'true');
       location.href = '/';
@@ -93,6 +94,7 @@ $(document).ready(function(){
       recognition.start();
       ignore_onend = false;
     }
+    console.log("start loadVideo");
 
      var stopAt = -1;
 
@@ -102,13 +104,15 @@ $(document).ready(function(){
       var player = $('#myplayer').get(0);
       $.get('/api/movie' + '__' + getSceneName()).then(function(data){
         clips = data;
-        player.src = clips['question1'].src;    
+        player_real_src = clips['question1'].src; 
+        loadVideo(clips['question1'].src);   
       });
 
       var currentClip = '';
       function actionLog(msg){
         $('#messages').append($('<li>').text(msg));
         console.log(msg);
+
       }
       function playClip(clipName, callback) {
         //console.log(clipName);
@@ -126,9 +130,13 @@ $(document).ready(function(){
             isLastClip = false;
         }
         player.pause();
-        if(getVideoFilename(player.currentSrc) != getVideoFilename(curClip.src)) {
-          player.src = curClip.src;
-          player.load();
+        if(getVideoFilename(player_real_src) != getVideoFilename(curClip.src)) {
+          
+          player_real_src = curClip.src;
+          player.src = player_real_src;
+          // will be changed later
+          loadVideo(curClip.src);
+                    //player.load();
         }
         player.currentTime = curClip.start;
         stopAt = curClip.end;
@@ -136,7 +144,34 @@ $(document).ready(function(){
         player.ontimeupdate = function() {checkStop(callback)};
         
       }
-  
+      function loadVideo(path){
+        console.log("start loadVideo");
+        var req = new XMLHttpRequest();
+        req.open('GET', path, true);
+        req.responseType = 'blob';
+
+        req.onload = function() {
+           // Onload is triggered even on 404
+           // so we need to check the status code
+           if (this.status === 200) {
+              var videoBlob = this.response;
+              var vid = URL.createObjectURL(videoBlob); // IE10+
+              // Video is now downloaded
+              // and we can set it as source on the video element
+              //video.src = vid;
+              var player = $('#myplayer').get(0);
+              player.src = vid;
+              console.log(vid);
+              console.log("done")
+           }
+        }
+        req.onerror = function() {
+           // Error
+        }
+
+        req.send();
+    }
+    
       socket.on('chat', function(msg){
         actionLog(msg);
         if(msg.indexOf('play:') >=0) {
