@@ -32,38 +32,38 @@
    "question7":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":29.103,
-      "end":36.019,
+      "end":35.298,
       "isLastClip":true
    },
    "correct1":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "correct2":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "correct3":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "correct4":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "correct5":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "correct6":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":37.1,
-      "end":40.8
+      "start":36,
+      "end":40
    },
    "wrong1":{ 
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
