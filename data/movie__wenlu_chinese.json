@@ -17,21 +17,21 @@
    "question4":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
       "start":16.565,
-      "end":20.565
+      "end":20.065
    },
    "question5":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":20.565,
-      "end":24.554
+      "start":20.065,
+      "end":24.254
    },
    "question6":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":24.554,
-      "end":29.103
+      "start":24.254,
+      "end":28.3
    },
    "question7":{  
       "src":"../video/full_video/wenlu/chinese_wenlu_right_wrong.mp4",
-      "start":29.103,
+      "start":28.3,
       "end":35.298,
       "isLastClip":true
    },

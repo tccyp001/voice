@@ -2,115 +2,115 @@
   "question1": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba1.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a1.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba2.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a2.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba3.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a3.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba4.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a4.mp3"
     }
   ],
-  "answer_question1": "多少钱",
+  "answer_question1": "你好照相",
   "question2": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba5.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a5.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba6.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a6.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba2.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a2.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba1.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a1.mp3"
     }
   ],
-  "answer_question2": "红的吧",
+  "answer_question2": "谢谢",
   "question3": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba3.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a3.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba4.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a4.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba5.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a5.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba6.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a6.mp3"
     }
   ],
-  "answer_question3": "50块",
+  "answer_question3": "哪国人",
   "question4": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba2.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a2.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba1.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a1.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba3.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a3.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba4.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a4.mp3"
     }
   ],
-  "answer_question4": "算了",
+  "answer_question4": "高兴认识你",
   "question5": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba5.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a5.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba6.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a6.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba2.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a2.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba1.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a1.mp3"
     }
   ],
-  "answer_question5": "打八折",
+  "answer_question5": "做什么",
   "question6": [
     {
       "text": "选项一",
-      "src": "../mp3/wenlu/chinese/bengci/ba3.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a3.mp3"
     },
     {
       "text": "选项二",
-      "src": "../mp3/wenlu/chinese/bengci/ba4.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a4.mp3"
     },
     {
       "text": "选项三",
-      "src": "../mp3/wenlu/chinese/bengci/ba5.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a5.mp3"
     },
     {
       "text": "选项四",
-      "src": "../mp3/wenlu/chinese/bengci/ba6.mp3"
+      "src": "../mp3/wenlu/chinese/bengci/a6.mp3"
     }
   ],
-  "answer_question6": "粉丝"
+  "answer_question6": "汉语很好"
 }
