@@ -126,7 +126,7 @@ $(document).ready(function(){
     function generatePerviousNextButton(index){
       var preQuestionText = "Previous";
       var nextQuestionText = "Next";
-      if(sessionStorage.getItem('lang_name') == 'chinese') {
+      if(sessionStorage.getItem('lang_name') == 'english') {
             preQuestionText= "上一题";
             nextQuestionText= "下一题";
       }

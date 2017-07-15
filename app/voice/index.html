@@ -63,11 +63,11 @@
     <script type="text/javascript">
       var app = angular.module('myApp', []);
       app.controller('myCtrl', function($scope, $http) {
-          if(sessionStorage.getItem('lang_name') == 'chinese') {
+          if(sessionStorage.getItem('lang_name') == 'english') {
             $scope.startText= "开始视频";
             $scope.fullScreen= "全屏";
           }
-          else if(sessionStorage.getItem('lang_name') == 'english') {
+          else if(sessionStorage.getItem('lang_name') == 'chinese') {
             $scope.startText= "Play";
             $scope.fullScreen= "Full Screen";
           }

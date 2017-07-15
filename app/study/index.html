@@ -46,7 +46,7 @@
     <script type="text/javascript">
       var app = angular.module('myApp', []);
       app.controller('myCtrl', function($scope, $http) {
-          if(sessionStorage.getItem('lang_name') == 'chinese') {
+          if(sessionStorage.getItem('lang_name') == 'english') {
             $scope.normalSpeed= "正常速度";
             $scope.slowSpeed= "慢速";
             $scope.superSlowSpeed= "超慢速";
@@ -55,7 +55,7 @@
             $scope.replay="重放";
             $scope.pause="暂停";
           }
-          if(sessionStorage.getItem('lang_name') == 'english') {
+          if(sessionStorage.getItem('lang_name') == 'chinese') {
             $scope.startText= "Play";
             $scope.fullScreen= "Full Screen";
             $scope.normalSpeed= "Normal";

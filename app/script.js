@@ -48,7 +48,7 @@ $('document').ready(function(){
 
 	});
 var select_scene = function(scene_name){
-	var classroom_number = $('#classroom_number').val();
+	var classroom_number = parseInt($('#classroom_number_1').val()) + parseInt($('#classroom_number_2').val()) -1;
 	 if (classroom_number == ''){
 	 	alert("please put a classroom number");
 	 }
