@@ -22,10 +22,10 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="../commio.js"></script>
     <script>
-    if (sessionStorage.getItem('scene_name') == null) {
+     if (sessionStorage.getItem('scene_name') == null) {
       sessionStorage.setItem('isDebugMode', 'true');
       location.href = '/';
-      return;
+
      }
       var socket = io();
       var roomName = getChannelName();
