@@ -255,7 +255,7 @@ $(document).ready(function(){
       }
       function setSpeed(speed){
         player.pause();
-        player.src=clips[speed].src;
+        player.src='';
         //player.load();
         loadVideo(clips[speed].src)
         stopAt = -1;
