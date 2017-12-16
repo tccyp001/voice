@@ -1,0 +1,114 @@
+{
+  "lang":"en-US",
+  "question1": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 0,
+    "end": 3.59
+  },
+  "question2": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 3.62,
+    "end": 10.8
+  },
+  "question3": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 10.875,
+    "end": 23.709
+  },
+  "question4": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 23.793,
+    "end": 28.855
+  },
+  "question5": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 28.919,
+    "end": 38.208
+  },
+  "question6": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 38.250,
+    "end": 49.409
+  },
+  "question7": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 49.459,
+    "end": 64.781,
+    "isLastClip": true
+  },  
+  "correct1": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "correct2": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "correct3": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "correct4": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "correct5": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "correct6": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 65.309,
+    "end": 69
+  },
+  "wrong1": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "wrong2": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "wrong3": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "wrong4": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "wrong5": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "wrong6": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 69.5,
+    "end": 76
+  },
+  "normal": {
+    "src": "../video/full_video/store/store_normal_english_with_right_wrong.mp4",
+    "start": 0,
+    "end": 64.781
+  },
+  "slow": {
+    "src": "../video/full_video/store/store_slow_english.mp4",
+    "start": 0,
+    "end": 99
+  },
+  "superslow": {
+    "src": "../video/full_video/store/store_superslow_english.mp4",
+    "start": 0,
+    "end": 99
+  }
+}

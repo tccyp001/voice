@@ -1,0 +1,116 @@
+{  
+   "question1":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/iwantorder.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/okwantthis.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/doggybag.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/bequick.mp3"
+      }
+   ],
+   "answer_question1":"我要点菜",
+   "question2":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/check.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/okwantthis.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/doggybag.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/iwanttea.mp3"
+      }
+   ],
+   "answer_question2":"我要查",
+    "question3":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/iwantorder.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/okwantthis.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/iwanttea.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/bequick.mp3"
+      }
+   ],
+   "answer_question3":"可以了我要这个这个",
+      "question4":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/check.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/okwantthis.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/doggybag.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/bequick.mp3"
+      }
+   ],
+   "answer_question4":"请快一点",
+      "question5":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/iwantorder.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/check.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/doggybag.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/bequick.mp3"
+      }
+   ],
+   "answer_question5":"很好谢谢买单",
+      "question6":[  
+      {
+         "text": "选项一",
+         "src": "../mp3/iwantorder.mp3"
+      },
+      {
+         "text": "选项二",
+         "src": "../mp3/okwantthis.mp3"
+      },
+      {
+         "text": "选项三",
+         "src": "../mp3/doggybag.mp3"
+      },
+      {
+         "text": "选项四",
+         "src": "../mp3/bequick.mp3"
+      }
+   ],
+   "answer_question6":"这些打包"
+}

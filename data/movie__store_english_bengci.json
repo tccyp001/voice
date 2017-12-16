@@ -1,0 +1,114 @@
+{
+  "lang":"en-US",
+  "question1": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 0,
+    "end": 2.667
+  },
+  "question2": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 2.802,
+    "end": 7.092
+  },
+  "question3": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 7.196,
+    "end": 24.174
+  },
+  "question4": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 24.252,
+    "end": 28.251
+  },
+  "question5": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 28.375,
+    "end": 32.792
+  },
+  "question6": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 32.876,
+    "end": 39.372
+  },
+  "question7": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 39.418,
+    "end": 53.6,
+    "isLastClip": true
+  },
+  "correct1": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "correct2": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "correct3": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "correct4": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "correct5": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "correct6": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 54,
+    "end": 58
+  },
+  "wrong1": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "wrong2": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "wrong3": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "wrong4": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "wrong5": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "wrong6": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 58.5,
+    "end": 65
+  },
+  "normal": {
+    "src": "../video/full_video/store/store_bengci_english_with_right_wrong.mp4",
+    "start": 0,
+    "end": 53.6
+  },
+  "slow": {
+    "src": "../video/full_video/store/store_bengci_slow_english.mp4",
+    "start": 0,
+    "end": 99
+  },
+  "superslow": {
+    "src": "../video/full_video/store/store_bengci_superslow_english.mp4",
+    "start": 0,
+    "end": 99
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HYSK</title>
+    <!-- CSS File -->
+    <link rel='stylesheet' href='../bootstrap/dist/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='../font-awesome/css/font-awesome.min.css' />
+    <link rel='stylesheet' href='../voice/style.css' />
+  </head>
+
+  <body>
+
+  <div class="body_wrapper" id='main'>
+    <div class="header">
+      <div class="logo" ><a href="/"><img width = '150px' height = '100px' src="../images/logo.png"> <p class ='logo_text'>Main Menu</p></a></div>
+      <div class="mic_icon">      
+        <button id="start_button">
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="thumbnail" ><img src="../images/images.jpg"></div>
+      <div id="selections">
+        
+        <!-- Button trigger modal -->
+        <div><button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">配置</button></div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">配置</h4>
+          </div>
+          <div class="modal-body">
+            <div>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">影片配置</a></li>
+              <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">题目配置</a></li>
+            </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+              <div role="tabpanel" class="tab-pane active" id="home">
+                <form  class="form_movie">
+                </form>
+                <div><input type="submit" id="submit_movie"></div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="profile">
+                <form  class="form_question">
+                  
+                </form>
+
+                <div><input type="submit" id="submit_question"></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="../jquery/dist/jquery.js"></script>
+    <script src='../bootstrap/dist/js/bootstrap.min.js'></script>
+    <script src='../script.js'></script>
+  </body>
+</html>

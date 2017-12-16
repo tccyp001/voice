@@ -1,0 +1,113 @@
+{
+  "question1": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 8.752
+  },
+  "question2": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 8.792,
+    "end": 14.6
+  },
+  "question3": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 13.501,
+    "end": 26.209
+  },
+  "question4": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 26.333,
+    "end": 30.246
+  },
+  "question5": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 30.287,
+    "end": 36.959
+  },
+  "question6": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 37.042,
+    "end": 40.950
+  },
+  "question7": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 41,
+    "end": 44.660,
+    "isLastClip": true
+  },
+  "correct1": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "correct2": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "correct3": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "correct4": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "correct5": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "correct6": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 45,
+    "end": 48.2
+  },
+  "wrong1": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "wrong2": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "wrong3": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "wrong4": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "wrong5": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "wrong6": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 49,
+    "end": 55
+  },
+  "normal": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 44.66
+  },
+  "slow": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 51.5
+  },
+  "superslow": {
+    "src": "..video/full_video/store/store_bengci_chinese_with_right_wrong.mp4",
+    "start": 0,
+    "end": 51.5
+  }
+}
